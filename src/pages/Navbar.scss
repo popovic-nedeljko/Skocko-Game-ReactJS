@@ -1,0 +1,36 @@
+@import '../sass/variables.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  font-size: 2rem;
+  font-weight: 600;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 2.5%;
+    top: 7rem;
+    height: 1px;
+    width: 95%;
+    border-bottom: 2px solid $color-grey-nav;
+  }
+}
+a {
+  text-decoration: none;
+  color: $color-grey-light-3;
+  margin: 5rem;
+  &:hover {
+    transform: translateY(-0.2rem);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+.nav {
+  border: 1px solid $color-grey-nav;
+  border-radius: 3px;
+  padding: 1rem;
+}
