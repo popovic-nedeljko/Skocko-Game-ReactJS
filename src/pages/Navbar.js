@@ -16,6 +16,12 @@ function Navbar() {
     setIsRowThree,
     setIsRowFour,
     setIsRowFive,
+    setResultsRowOne,
+    setResultsRowTwo,
+    setResultsRowThree,
+    setResultsRowFour,
+    setResultsRowFive,
+    setNewGame,
   } = useGlobalContext();
 
   const handleClick = () => {
@@ -29,7 +35,13 @@ function Navbar() {
     setIsRowThree(false);
     setIsRowFour(false);
     setIsRowFive(false);
+    setResultsRowOne([]);
+    setResultsRowTwo([]);
+    setResultsRowThree([]);
+    setResultsRowFour([]);
+    setResultsRowFive([]);
     setTime(60);
+    setNewGame(true);
   };
   return (
     <div className='navbar'>

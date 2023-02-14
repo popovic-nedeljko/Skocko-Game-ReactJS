@@ -15,23 +15,18 @@ const Buttons = () => {
     rowOne,
     setRowOne,
     isRowOne,
-    setIsRowOne,
     rowTwo,
     setRowTwo,
     isRowTwo,
-    setIsRowTwo,
     rowThree,
     setRowThree,
     isRowThree,
-    setIsRowThree,
     rowFour,
     setRowFour,
     isRowFour,
-    setIsRowFour,
     rowFive,
     isRowFive,
     setRowFive,
-    setIsRowFive,
   } = useGlobalContext();
 
   const handleClick = (symbol) => {
@@ -78,41 +73,35 @@ const Buttons = () => {
         item={<BsFillStarFill />}
         name={'star'}
         click={() => handleClick(<BsFillStarFill />)}
-        // click={() => handleClick('zvezda')}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitClubFill />}
         name={'club'}
-        // click={() => handleClick('tref')}
         click={() => handleClick(<BsFillSuitClubFill />)}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitSpadeFill />}
         name={'spade'}
-        // click={() => handleClick('list')}
         click={() => handleClick(<BsFillSuitSpadeFill />)}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitHeartFill />}
         name={'hearts'}
-        // click={() => handleClick('srce')}
         click={() => handleClick(<BsFillSuitHeartFill />)}
         disable={disableButton}
       />
       <Button
         item={<GiDiamonds />}
         name={'diamonds'}
-        // click={() => handleClick('karo')}
         click={() => handleClick(<GiDiamonds />)}
         disable={disableButton}
       />
       <Button
         item={<GiCardJoker />}
         name={'joker'}
-        // click={() => handleClick('skocko')}
         click={() => handleClick(<GiCardJoker />)}
         disable={disableButton}
       />

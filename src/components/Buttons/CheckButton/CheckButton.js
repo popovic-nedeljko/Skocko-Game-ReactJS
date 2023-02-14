@@ -32,18 +32,18 @@ function CheckButton() {
   const compare = (result, row, setResults) => {
     const red = [];
     const yellow = [];
-    const nista = [];
+    const wrong = [];
     result.map((item, index) => {
-      if (row[index] === item) {
-        return red.push(`red`);
-      } else if (rowOne.includes(item)) {
-        return yellow.push(`yellow`);
+      if (row[index].type === item.type) {
+        return red.push(`var(--color-red)`);
+      } else if (row.some((rowItem) => rowItem.type === item.type)) {
+        return yellow.push(`var(--color-yellow)`);
       } else {
-        return nista.push(`nista`);
+        return wrong.push(`var(--color-greey)`);
       }
     });
-    console.log([...red, ...yellow, ...nista]);
-    return setResults([...red, ...yellow, ...nista]);
+    console.log([...red, ...yellow, ...wrong]);
+    return setResults([...red, ...yellow, ...wrong]);
   };
 
   const handleClick = () => {
@@ -67,12 +67,27 @@ function CheckButton() {
       setIsRowFive(true);
       compare(secretSymbols, rowFive, setResultsRowFive);
     }
-
-    console.log(`klik`);
   };
 
+  const disableButton =
+    !isRowOne && rowOne.length === 4
+      ? true
+      : !isRowTwo && rowTwo.length === 4
+      ? true
+      : !isRowThree && rowThree.length === 4
+      ? true
+      : !isRowFour && rowFour.length === 4
+      ? true
+      : !isRowFive && rowFive.length === 4
+      ? true
+      : isRowFive && true;
+
   return (
-    <button className='btn btn__check' onClick={handleClick}>
+    <button
+      className='btn btn__check'
+      onClick={handleClick}
+      disabled={!disableButton}
+    >
       CHECK RESULT
     </button>
   );

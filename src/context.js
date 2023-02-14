@@ -10,20 +10,14 @@ import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  // const symbols = ['list', 'zvezda', 'tref', 'karo', 'skocko', 'srce'];
-  const srce = <BsFillSuitHeartFill />;
-  const skocko = <GiCardJoker />;
-  const list = <BsFillSuitSpadeFill />;
-  const zvezda = <BsFillStarFill />;
-  const symbols = [srce, list, zvezda, skocko, `tref`, `karo`];
-  // const symbols = [
-  //   <BsFillSuitSpadeFill />,
-  //   <BsFillStarFill />,
-  //   <BsFillSuitClubFill />,
-  //   <GiDiamonds />,
-  //   <GiCardJoker />,
-  //   <BsFillSuitHeartFill />,
-  // ];
+  const symbols = [
+    <BsFillSuitSpadeFill />,
+    <BsFillStarFill />,
+    <BsFillSuitClubFill />,
+    <GiDiamonds />,
+    <GiCardJoker />,
+    <BsFillSuitHeartFill />,
+  ];
 
   const [hidden, setHidden] = useState(true);
   const [secretSymbols, setSecretSymbols] = useState([]);
@@ -45,7 +39,8 @@ const AppProvider = ({ children }) => {
   const [resultsRowFour, setResultsRowFour] = useState([]);
   const [resultsRowFive, setResultsRowFive] = useState([]);
 
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(100);
+  const [newGame, setNewGame] = useState(false);
 
   const random = (item) => {
     let number = Math.floor(Math.random() * item.length);
@@ -98,6 +93,7 @@ const AppProvider = ({ children }) => {
         setResultsRowFour,
         resultsRowFive,
         setResultsRowFive,
+        setNewGame,
       }}
     >
       {children}
