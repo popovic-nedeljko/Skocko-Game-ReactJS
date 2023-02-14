@@ -3,4 +3,9 @@
   width: 50%;
   margin: 1rem;
   padding: 1rem 2rem;
+
+  &:disabled {
+    transform: none;
+    box-shadow: none;
+  }
 }

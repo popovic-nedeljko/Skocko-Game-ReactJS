@@ -10,7 +10,6 @@ function CheckButton() {
     isRowTwo,
     setIsRowTwo,
     rowThree,
-
     isRowThree,
     setIsRowThree,
     rowFour,
@@ -25,11 +24,13 @@ function CheckButton() {
     setResultsRowThree,
     setResultsRowFour,
     setResultsRowFive,
+    setHidden,
+    hidden,
   } = useGlobalContext();
   console.log(rowOne);
   console.log(secretSymbols);
 
-  const compare = (result, row, setResults) => {
+  const compare = (result, row, setResults, hidden) => {
     const red = [];
     const yellow = [];
     const wrong = [];
@@ -43,44 +44,46 @@ function CheckButton() {
       }
     });
     console.log([...red, ...yellow, ...wrong]);
+    if (red.length === 4) hidden(false);
     return setResults([...red, ...yellow, ...wrong]);
   };
 
   const handleClick = () => {
     if (!isRowOne && rowOne.length === 4) {
       setIsRowOne(true);
-      compare(secretSymbols, rowOne, setResultsRowOne);
+      compare(secretSymbols, rowOne, setResultsRowOne, setHidden);
     }
     if (isRowOne && !isRowTwo && rowTwo.length === 4) {
       setIsRowTwo(true);
-      compare(secretSymbols, rowTwo, setResultsRowTwo);
+      compare(secretSymbols, rowTwo, setResultsRowTwo, setHidden);
     }
     if (isRowTwo && !isRowThree && rowThree.length === 4) {
       setIsRowThree(true);
-      compare(secretSymbols, rowThree, setResultsRowThree);
+      compare(secretSymbols, rowThree, setResultsRowThree, setHidden);
     }
     if (isRowThree && !isRowFour && rowFour.length === 4) {
       setIsRowFour(true);
-      compare(secretSymbols, rowFour, setResultsRowFour);
+      compare(secretSymbols, rowFour, setResultsRowFour, setHidden);
     }
     if (isRowFour && !isRowFive && rowFive.length === 4) {
       setIsRowFive(true);
-      compare(secretSymbols, rowFive, setResultsRowFive);
+      compare(secretSymbols, rowFive, setResultsRowFive, setHidden);
     }
   };
 
-  const disableButton =
-    !isRowOne && rowOne.length === 4
-      ? true
-      : !isRowTwo && rowTwo.length === 4
-      ? true
-      : !isRowThree && rowThree.length === 4
-      ? true
-      : !isRowFour && rowFour.length === 4
-      ? true
-      : !isRowFive && rowFive.length === 4
-      ? true
-      : isRowFive && true;
+  const disableButton = hidden
+    ? true
+    : !isRowOne && rowOne.length === 4
+    ? true
+    : !isRowTwo && rowTwo.length === 4
+    ? true
+    : !isRowThree && rowThree.length === 4
+    ? true
+    : !isRowFour && rowFour.length === 4
+    ? true
+    : !isRowFive && rowFive.length === 4
+    ? true
+    : isRowFive && true;
 
   return (
     <button

@@ -19,6 +19,7 @@ function UndoButton() {
     rowFive,
     setRowFive,
     isRowFive,
+    hidden,
   } = useGlobalContext();
 
   const undo = (row, setRow) => {
@@ -36,7 +37,12 @@ function UndoButton() {
   };
 
   return (
-    <button className='btn btn__undo' type='submit' onClick={handleClick}>
+    <button
+      className='btn btn__undo'
+      type='submit'
+      onClick={handleClick}
+      disabled={!hidden ? true : false}
+    >
       UNDO SIMBOL
     </button>
   );

@@ -9,10 +9,10 @@ function SecretSymbol() {
 
   return (
     <div className='secret-symbol'>
-      <SingleItem item={secretSymbols[0]} hidden={hidden ? '' : ''} />
-      <SingleItem item={secretSymbols[1]} />
-      <SingleItem item={secretSymbols[2]} />
-      <SingleItem item={secretSymbols[3]} />
+      <SingleItem item={secretSymbols[0]} hidden={hidden ? 'hidden' : ''} />
+      <SingleItem item={secretSymbols[1]} hidden={hidden ? 'hidden' : ''} />
+      <SingleItem item={secretSymbols[2]} hidden={hidden ? 'hidden' : ''} />
+      <SingleItem item={secretSymbols[3]} hidden={hidden ? 'hidden' : ''} />
     </div>
   );
 }

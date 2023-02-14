@@ -63,6 +63,7 @@ const AppProvider = ({ children }) => {
       value={{
         secretSymbols,
         hidden,
+        setHidden,
         time,
         setTime,
         rowOne,

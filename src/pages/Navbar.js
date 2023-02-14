@@ -22,6 +22,7 @@ function Navbar() {
     setResultsRowFour,
     setResultsRowFive,
     renderRandomSymbols,
+    setHidden,
   } = useGlobalContext();
 
   const handleClick = () => {
@@ -40,8 +41,9 @@ function Navbar() {
     setResultsRowThree([]);
     setResultsRowFour([]);
     setResultsRowFive([]);
-    setTime(60);
+    setTime(100);
     renderRandomSymbols();
+    setHidden(true);
   };
   return (
     <div className='navbar'>
