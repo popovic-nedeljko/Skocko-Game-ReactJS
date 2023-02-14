@@ -4,7 +4,8 @@ import './View.scss';
 import ViewBlock from './ViewBlock';
 
 const View = () => {
-  const { rowOne, rowTwo, rowThree, rowFour, rowFive } = useGlobalContext();
+  const { rowOne, rowTwo, rowThree, rowFour, rowFive, rowSix } =
+    useGlobalContext();
 
   return (
     <>
@@ -13,6 +14,7 @@ const View = () => {
       <ViewBlock row={rowThree} />
       <ViewBlock row={rowFour} />
       <ViewBlock row={rowFive} />
+      <ViewBlock row={rowSix} />
     </>
   );
 };

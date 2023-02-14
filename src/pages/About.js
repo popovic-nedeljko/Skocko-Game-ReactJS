@@ -24,7 +24,7 @@ function About() {
         4. The player continues to guess and receive feedback until they have
         either correctly guessed the secret code or run out of guesses or the
         time runs out. <br />
-        The player wins if they correctly guess the secret code within 5
+        The player wins if they correctly guess the secret code within 6
         guesses.
       </p>
     </div>

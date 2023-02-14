@@ -18,12 +18,18 @@ function CheckButton() {
     rowFive,
     isRowFive,
     setIsRowFive,
+    rowSix,
+    setRowSix,
+    isRowSix,
+    setIsRowSix,
+
     secretSymbols,
     setResultsRowOne,
     setResultsRowTwo,
     setResultsRowThree,
     setResultsRowFour,
     setResultsRowFive,
+    setResultsRowSix,
     setHidden,
     hidden,
   } = useGlobalContext();
@@ -67,6 +73,11 @@ function CheckButton() {
       setIsRowFive(true);
       compare(secretSymbols, rowFive, setResultsRowFive, setHidden);
     }
+    if (isRowFive && !isRowSix && rowSix.length === 4) {
+      setIsRowSix(true);
+      compare(secretSymbols, rowSix, setResultsRowSix);
+      setHidden(false);
+    }
   };
 
   const disableButton =
@@ -80,7 +91,9 @@ function CheckButton() {
       ? true
       : !isRowFive && rowFive.length === 4
       ? true
-      : isRowFive && true;
+      : !isRowSix && rowSix.length === 4
+      ? true
+      : isRowSix && true;
 
   return (
     <button

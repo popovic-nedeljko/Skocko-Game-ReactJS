@@ -33,11 +33,16 @@ const AppProvider = ({ children }) => {
   const [rowFive, setRowFive] = useState([]);
   const [isRowFive, setIsRowFive] = useState(false);
 
+  const [rowSix, setRowSix] = useState([]);
+  const [isRowSix, setIsRowSix] = useState(false);
+
   const [resultsRowOne, setResultsRowOne] = useState([]);
   const [resultsRowTwo, setResultsRowTwo] = useState([]);
   const [resultsRowThree, setResultsRowThree] = useState([]);
   const [resultsRowFour, setResultsRowFour] = useState([]);
   const [resultsRowFive, setResultsRowFive] = useState([]);
+
+  const [resultsRowSix, setResultsRowSix] = useState([]);
 
   const [time, setTime] = useState(100);
 
@@ -86,6 +91,10 @@ const AppProvider = ({ children }) => {
         setRowFive,
         isRowFive,
         setIsRowFive,
+        rowSix,
+        setRowSix,
+        isRowSix,
+        setIsRowSix,
         resultsRowOne,
         setResultsRowOne,
         resultsRowTwo,
@@ -96,6 +105,8 @@ const AppProvider = ({ children }) => {
         setResultsRowFour,
         resultsRowFive,
         setResultsRowFive,
+        resultsRowSix,
+        setResultsRowSix,
         renderRandomSymbols,
       }}
     >

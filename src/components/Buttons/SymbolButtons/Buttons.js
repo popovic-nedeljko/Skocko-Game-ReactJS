@@ -27,6 +27,9 @@ const Buttons = () => {
     rowFive,
     isRowFive,
     setRowFive,
+    rowSix,
+    isRowSix,
+    setRowSix,
     hidden,
   } = useGlobalContext();
 
@@ -53,6 +56,10 @@ const Buttons = () => {
       setRowFive([...rowFive, symbol]);
       if (rowFive.length === 4) setRowFive([...rowFive]);
     }
+    if (isRowFive) {
+      setRowSix([...rowSix, symbol]);
+      if (rowSix.length === 4) setRowSix([...rowSix]);
+    }
   };
 
   const disableButton = !hidden
@@ -67,7 +74,9 @@ const Buttons = () => {
     ? true
     : !isRowFive && rowFive.length === 4
     ? true
-    : isRowFive && true;
+    : !isRowSix && rowSix.length === 4
+    ? true
+    : isRowSix && true;
 
   return (
     <div className='buttons'>

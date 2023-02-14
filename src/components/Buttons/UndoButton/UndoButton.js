@@ -19,6 +19,9 @@ function UndoButton() {
     rowFive,
     setRowFive,
     isRowFive,
+    rowSix,
+    setRowSix,
+    isRowSix,
     hidden,
   } = useGlobalContext();
 
@@ -29,6 +32,7 @@ function UndoButton() {
   };
 
   const handleClick = () => {
+    if (!isRowSix) undo(rowSix, setRowSix);
     if (!isRowFive) undo(rowFive, setRowFive);
     if (!isRowFour) undo(rowFour, setRowFour);
     if (!isRowThree) undo(rowThree, setRowThree);

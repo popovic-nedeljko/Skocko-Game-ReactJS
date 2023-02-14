@@ -11,16 +11,19 @@ function Navbar() {
     setRowThree,
     setRowFour,
     setRowFive,
+    setRowSix,
     setIsRowOne,
     setIsRowTwo,
     setIsRowThree,
     setIsRowFour,
     setIsRowFive,
+    setIsRowSix,
     setResultsRowOne,
     setResultsRowTwo,
     setResultsRowThree,
     setResultsRowFour,
     setResultsRowFive,
+    setResultsRowSix,
     renderRandomSymbols,
     setHidden,
   } = useGlobalContext();
@@ -31,17 +34,20 @@ function Navbar() {
     setRowThree([]);
     setRowFour([]);
     setRowFive([]);
+    setRowSix([]);
     setIsRowOne(false);
     setIsRowTwo(false);
     setIsRowThree(false);
     setIsRowFour(false);
     setIsRowFive(false);
+    setIsRowSix(false);
     setResultsRowOne([]);
     setResultsRowTwo([]);
     setResultsRowThree([]);
     setResultsRowFour([]);
     setResultsRowFive([]);
-    setTime(10);
+    setResultsRowSix([]);
+    setTime(100);
     renderRandomSymbols();
     setHidden(true);
   };

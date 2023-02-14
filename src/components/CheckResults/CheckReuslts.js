@@ -9,6 +9,7 @@ function CheckReuslts() {
     resultsRowThree,
     resultsRowFour,
     resultsRowFive,
+    resultsRowSix,
   } = useGlobalContext();
 
   return (
@@ -18,6 +19,7 @@ function CheckReuslts() {
       <CheckView row={resultsRowThree} />
       <CheckView row={resultsRowFour} />
       <CheckView row={resultsRowFive} />
+      <CheckView row={resultsRowSix} />
     </>
   );
 }

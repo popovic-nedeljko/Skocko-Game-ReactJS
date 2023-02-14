@@ -3,7 +3,7 @@ import { useGlobalContext } from '../../context';
 import './Timer.scss';
 
 const Timer = () => {
-  const { time, setTime, setHidden } = useGlobalContext();
+  const { time, setTime, setHidden, hidden } = useGlobalContext();
 
   useEffect(() => {
     const timer =
@@ -15,6 +15,7 @@ const Timer = () => {
   }, [time]);
 
   if (time === 0) setHidden(false);
+  if (!hidden) setTime(0);
 
   return <div className='timer'>{time}</div>;
 };
