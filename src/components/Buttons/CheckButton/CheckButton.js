@@ -1,5 +1,5 @@
 import React from 'react';
-import './CheckButton.scss';
+import '../CheckUndoButton.scss';
 import { useGlobalContext } from '../../../context';
 function CheckButton() {
   const {
@@ -27,8 +27,6 @@ function CheckButton() {
     setHidden,
     hidden,
   } = useGlobalContext();
-  console.log(rowOne);
-  console.log(secretSymbols);
 
   const compare = (result, row, setResults, hidden) => {
     const red = [];
@@ -71,25 +69,24 @@ function CheckButton() {
     }
   };
 
-  const disableButton = hidden
-    ? true
-    : !isRowOne && rowOne.length === 4
-    ? true
-    : !isRowTwo && rowTwo.length === 4
-    ? true
-    : !isRowThree && rowThree.length === 4
-    ? true
-    : !isRowFour && rowFour.length === 4
-    ? true
-    : !isRowFive && rowFive.length === 4
-    ? true
-    : isRowFive && true;
+  const disableButton =
+    !isRowOne && rowOne.length === 4
+      ? true
+      : !isRowTwo && rowTwo.length === 4
+      ? true
+      : !isRowThree && rowThree.length === 4
+      ? true
+      : !isRowFour && rowFour.length === 4
+      ? true
+      : !isRowFive && rowFive.length === 4
+      ? true
+      : isRowFive && true;
 
   return (
     <button
       className='btn btn__check'
       onClick={handleClick}
-      disabled={!disableButton}
+      disabled={!hidden ? true : !disableButton}
     >
       CHECK RESULT
     </button>

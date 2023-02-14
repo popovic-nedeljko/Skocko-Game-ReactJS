@@ -1,0 +1,28 @@
+@import '../../sass/variables.scss';
+.btn {
+  width: 50%;
+  margin: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.3rem 0rem rgba($color-black, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+    transform: translateY(0rem);
+    box-shadow: 0 0.1rem 0.1rem 0rem rgba($color-black, 0.2);
+  }
+  &:disabled {
+    transform: none;
+    box-shadow: none;
+  }
+}

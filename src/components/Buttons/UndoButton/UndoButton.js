@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGlobalContext } from '../../../context';
-import './UndoButton.scss';
+import '../CheckUndoButton.scss';
 
 function UndoButton() {
   const {
