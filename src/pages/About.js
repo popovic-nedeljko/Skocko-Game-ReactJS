@@ -5,8 +5,8 @@ function About() {
   return (
     <div className='section-about'>
       <h2 className='heading'>
-        Slagalica is Serban quiz that dates from 1980 and is still on TV evryday
-        at 19:30. <br /> This is one of the games in that quiz. It is caled
+        Slagalica is Serban quiz that dates from 1980 and is still on TV
+        evrynight. <br /> This is one of the games in that quiz. It is caled
         "Skocko"
       </h2>
       <h1 className='heading-rules'>Rules</h1>
