@@ -40,20 +40,22 @@ const AppProvider = ({ children }) => {
   const [resultsRowFive, setResultsRowFive] = useState([]);
 
   const [time, setTime] = useState(100);
-  const [newGame, setNewGame] = useState(false);
 
   const random = (item) => {
     let number = Math.floor(Math.random() * item.length);
     return number;
   };
-
-  useEffect(() => {
+  const renderRandomSymbols = () => {
     setSecretSymbols([
       symbols[random(symbols)],
       symbols[random(symbols)],
       symbols[random(symbols)],
       symbols[random(symbols)],
     ]);
+  };
+
+  useEffect(() => {
+    renderRandomSymbols();
   }, []);
 
   return (
@@ -93,7 +95,7 @@ const AppProvider = ({ children }) => {
         setResultsRowFour,
         resultsRowFive,
         setResultsRowFive,
-        setNewGame,
+        renderRandomSymbols,
       }}
     >
       {children}
