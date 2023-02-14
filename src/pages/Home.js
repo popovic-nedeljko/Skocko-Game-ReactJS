@@ -20,7 +20,7 @@ function Home() {
       <div className='home--right'>
         <CheckReuslts />
         <Buttons />
-        {/* <Timer /> */}
+        <Timer />
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ function Navbar() {
     setResultsRowThree([]);
     setResultsRowFour([]);
     setResultsRowFive([]);
-    setTime(100);
+    setTime(10);
     renderRandomSymbols();
     setHidden(true);
   };
