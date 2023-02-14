@@ -7,16 +7,7 @@
   height: 7rem;
   font-size: 2rem;
   font-weight: 600;
-
-  &:before {
-    content: '';
-    position: absolute;
-    left: 2.5%;
-    top: 7rem;
-    height: 1px;
-    width: 95%;
-    border-bottom: 2px solid $color-grey-nav;
-  }
+  border-bottom: 2px solid $color-grey-nav;
 }
 a {
   text-decoration: none;
@@ -29,7 +20,7 @@ a {
     transform: translateY(0);
   }
 }
-.nav {
+.nav-link {
   border: 1px solid $color-grey-nav;
   border-radius: 3px;
   padding: 1rem;

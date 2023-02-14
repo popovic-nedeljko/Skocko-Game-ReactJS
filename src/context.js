@@ -10,7 +10,12 @@ import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const symbols = ['list', 'zvezda', 'tref', 'karo', 'skocko', 'srce'];
+  // const symbols = ['list', 'zvezda', 'tref', 'karo', 'skocko', 'srce'];
+  const srce = <BsFillSuitHeartFill />;
+  const skocko = <GiCardJoker />;
+  const list = <BsFillSuitSpadeFill />;
+  const zvezda = <BsFillStarFill />;
+  const symbols = [srce, list, zvezda, skocko, `tref`, `karo`];
   // const symbols = [
   //   <BsFillSuitSpadeFill />,
   //   <BsFillStarFill />,

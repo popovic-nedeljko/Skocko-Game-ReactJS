@@ -1,6 +1,6 @@
 import React from 'react';
-import CheckView from '../components/CheckView';
-import { useGlobalContext } from '../context';
+import CheckView from './CheckView';
+import { useGlobalContext } from '../../context';
 
 function CheckReuslts() {
   const {

@@ -33,11 +33,11 @@ function Navbar() {
   };
   return (
     <div className='navbar'>
-      <Link to={'about'} className='nav about'>
+      <Link to={'about'} className='nav-link about'>
         ABOUT
       </Link>
       <h1 className='title'>SLAGALICA QUIZ</h1>
-      <Link to={'/'} className='nav new-game' onClick={handleClick}>
+      <Link to={'/'} className='nav-link new-game' onClick={handleClick}>
         NEW GAME
       </Link>
     </div>

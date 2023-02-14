@@ -1,14 +1,12 @@
-import logo from '../logo.svg';
 import '../App.css';
-import Buttons from '../components/Buttons';
-import View from '../components/View';
-import CheckView from '../components/CheckView';
-import UndoButton from '../components/UndoButton';
-import CheckButton from '../components/CheckButton';
-import Timer from '../components/Timer';
-import { useGlobalContext } from '../context';
-import SecretSymbol from '../components/SecretSymbols';
-import CheckReuslts from '../components/CheckReuslts';
+import Buttons from '../components/Buttons/SymbolButtons/Buttons';
+import View from '../components/GuesView/View';
+import UndoButton from '../components/Buttons/UndoButton/UndoButton';
+import CheckButton from '../components/Buttons/CheckButton/CheckButton';
+import Timer from '../components/Timer/Timer';
+import SecretSymbol from '../components/SecretSymbols/SecretSymbols';
+import CheckReuslts from '../components/CheckResults/CheckReuslts';
+import './Home.scss';
 
 function Home() {
   return (

@@ -1,39 +1,29 @@
 import React from 'react';
 import './CheckButton.scss';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../../context';
 function CheckButton() {
   const {
     rowOne,
-    setRowOne,
     isRowOne,
     setIsRowOne,
     rowTwo,
-    setRowTwo,
     isRowTwo,
     setIsRowTwo,
     rowThree,
-    setRowThree,
+
     isRowThree,
     setIsRowThree,
     rowFour,
-    setRowFour,
     isRowFour,
     setIsRowFour,
     rowFive,
-    setRowFive,
     isRowFive,
     setIsRowFive,
     secretSymbols,
-    setsecretSymbols,
-    resultsRowOne,
     setResultsRowOne,
-    resultsRowTwo,
     setResultsRowTwo,
-    resultsRowThree,
     setResultsRowThree,
-    resultsRowFour,
     setResultsRowFour,
-    resultsRowFive,
     setResultsRowFive,
   } = useGlobalContext();
   console.log(rowOne);
@@ -57,14 +47,26 @@ function CheckButton() {
   };
 
   const handleClick = () => {
-    //go to another row
-    if (!isRowOne && rowOne.length === 4) setIsRowOne(true);
-    if (isRowOne && !isRowTwo && rowTwo.length === 4) setIsRowTwo(true);
-    if (isRowTwo && !isRowThree && rowThree.length === 4) setIsRowThree(true);
-    if (isRowThree && !isRowFour && rowFour.length === 4) setIsRowFour(true);
-    if (isRowFour && !isRowFive && rowFive.length === 4) setIsRowFive(true);
-
-    compare(secretSymbols, rowOne, setResultsRowOne);
+    if (!isRowOne && rowOne.length === 4) {
+      setIsRowOne(true);
+      compare(secretSymbols, rowOne, setResultsRowOne);
+    }
+    if (isRowOne && !isRowTwo && rowTwo.length === 4) {
+      setIsRowTwo(true);
+      compare(secretSymbols, rowTwo, setResultsRowTwo);
+    }
+    if (isRowTwo && !isRowThree && rowThree.length === 4) {
+      setIsRowThree(true);
+      compare(secretSymbols, rowThree, setResultsRowThree);
+    }
+    if (isRowThree && !isRowFour && rowFour.length === 4) {
+      setIsRowFour(true);
+      compare(secretSymbols, rowFour, setResultsRowFour);
+    }
+    if (isRowFour && !isRowFive && rowFive.length === 4) {
+      setIsRowFive(true);
+      compare(secretSymbols, rowFive, setResultsRowFive);
+    }
 
     console.log(`klik`);
   };

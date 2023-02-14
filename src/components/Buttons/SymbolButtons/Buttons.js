@@ -8,7 +8,7 @@ import {
   BsFillSuitHeartFill,
 } from 'react-icons/bs';
 import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../../context';
 
 const Buttons = () => {
   const {
@@ -77,43 +77,43 @@ const Buttons = () => {
       <Button
         item={<BsFillStarFill />}
         name={'star'}
-        // click={() => handleClick(<BsFillStarFill />)}
-        click={() => handleClick('zvezda')}
+        click={() => handleClick(<BsFillStarFill />)}
+        // click={() => handleClick('zvezda')}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitClubFill />}
         name={'club'}
-        click={() => handleClick('tref')}
-        // click={() => handleClick(<BsFillSuitClubFill />)}
+        // click={() => handleClick('tref')}
+        click={() => handleClick(<BsFillSuitClubFill />)}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitSpadeFill />}
         name={'spade'}
-        click={() => handleClick('list')}
-        // click={() => handleClick(<BsFillSuitSpadeFill />)}
+        // click={() => handleClick('list')}
+        click={() => handleClick(<BsFillSuitSpadeFill />)}
         disable={disableButton}
       />
       <Button
         item={<BsFillSuitHeartFill />}
         name={'hearts'}
-        click={() => handleClick('srce')}
-        // click={() => handleClick(<BsFillSuitHeartFill />)}
+        // click={() => handleClick('srce')}
+        click={() => handleClick(<BsFillSuitHeartFill />)}
         disable={disableButton}
       />
       <Button
         item={<GiDiamonds />}
         name={'diamonds'}
-        click={() => handleClick('karo')}
-        // click={() => handleClick(<GiDiamonds />)}
+        // click={() => handleClick('karo')}
+        click={() => handleClick(<GiDiamonds />)}
         disable={disableButton}
       />
       <Button
         item={<GiCardJoker />}
         name={'joker'}
-        click={() => handleClick('skocko')}
-        // click={() => handleClick(<GiCardJoker />)}
+        // click={() => handleClick('skocko')}
+        click={() => handleClick(<GiCardJoker />)}
         disable={disableButton}
       />
     </div>

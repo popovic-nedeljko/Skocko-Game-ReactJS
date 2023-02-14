@@ -1,0 +1,21 @@
+@import '../sass/variables.scss';
+
+.section-about {
+  min-height: 100vh;
+  padding: 5% 10%;
+}
+
+.heading {
+  font-size: 3rem;
+}
+
+.heading-rules {
+  font-size: 4rem;
+  margin: 1rem;
+  text-transform: uppercase;
+}
+
+.text {
+  font-size: 2rem;
+  padding: 1rem;
+}
