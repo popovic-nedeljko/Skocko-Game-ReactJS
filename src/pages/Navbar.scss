@@ -8,11 +8,29 @@
   font-size: 2rem;
   font-weight: 600;
   border-bottom: 2px solid $color-grey-nav;
+
+  @media only screen and (max-width: $bp-medium-low) {
+    flex-direction: column;
+    height: fit-content;
+    margin-top: 1rem;
+    border-bottom: none;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
 }
+
 a {
   text-decoration: none;
   color: $color-grey-light-3;
   margin: 5rem;
+
+  @media only screen and (max-width: $bp-medium-low) {
+    margin: 1rem;
+  }
+
   &:hover {
     transform: translateY(-0.2rem);
   }
@@ -23,5 +41,12 @@ a {
 .nav-link {
   border: 1px solid $color-grey-nav;
   border-radius: 3px;
-  padding: 1rem;
+  padding: 1.5rem;
+}
+.title {
+  @media only screen and (max-width: $bp-small) {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    color: #fff;
+  }
 }

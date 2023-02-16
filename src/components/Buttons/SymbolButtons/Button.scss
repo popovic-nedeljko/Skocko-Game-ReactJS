@@ -1,14 +1,41 @@
 @import '../../../sass/variables.scss';
 .button-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin: 1rem;
   padding: 1rem;
-  height: 8rem;
-  width: 8rem;
+  height: 7rem;
+  width: 7rem;
   border-radius: 10px;
-  font-size: 4.5rem;
+  font-size: 4rem;
   text-align: center;
   border: 0.7rem solid $color-grey-light-1;
   background-color: $color-grey-light-2;
+
+  @media only screen and (max-width: $bp-medium-low) {
+    margin: 0.7rem;
+    padding: 0.7rem;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6px;
+    border: 0.4rem solid $color-grey-light-1;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 5rem;
+    width: 5rem;
+    font-size: 3rem;
+    border: 0.4rem solid $color-grey-light-1;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    margin: 0.4rem;
+    padding: 0.4rem;
+    height: 4.5rem;
+    width: 4.5rem;
+  }
 
   &:hover {
     transform: translateY(-0.2rem);
@@ -37,16 +64,16 @@
   }
 }
 .diamonds {
-  color: $color-red-2;
+  color: $color-red;
   &:disabled {
-    color: rgba($color-red-2, 0.4);
+    color: rgba($color-red, 0.4);
   }
 }
 
 .hearts {
-  color: $color-red-2;
+  color: $color-red;
   &:disabled {
-    color: rgba($color-red-2, 0.4);
+    color: rgba($color-red, 0.4);
   }
 }
 .joker {

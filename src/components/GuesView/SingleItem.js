@@ -4,7 +4,7 @@ import './SingleItem.scss';
 const SingleItem = ({ item, hidden }) => {
   return (
     <div className='item'>
-      <div className={hidden}>{item}</div>
+      <div className={`item-symbol ${hidden ? hidden : ''}`}>{item}</div>
     </div>
   );
 };

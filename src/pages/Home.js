@@ -11,17 +11,19 @@ import './Home.scss';
 function Home() {
   return (
     <div className='home'>
-      <div className='home--left'>
-        <View />
-        <SecretSymbol />
-        <CheckButton />
-        <UndoButton />
+      <div className='home--view-check'>
+        <div className='home--left'>
+          <View />
+          <SecretSymbol />
+        </div>
+        <div className='home--right'>
+          <CheckReuslts />
+          <Timer />
+        </div>
       </div>
-      <div className='home--right'>
-        <CheckReuslts />
-        <Buttons />
-        <Timer />
-      </div>
+      <Buttons />
+      <CheckButton />
+      <UndoButton />
     </div>
   );
 }

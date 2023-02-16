@@ -13,4 +13,18 @@
   border: 7px solid $color-black;
   border-radius: 50rem;
   text-align: center;
+
+  @media only screen and (max-width: $bp-small) {
+    height: 6.5rem;
+    width: 6.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    border: 5px solid $color-black;
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    height: 5rem;
+    width: 5rem;
+    font-size: 2rem;
+    border: 4px solid $color-black;
+  }
 }
