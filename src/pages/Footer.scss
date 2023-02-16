@@ -1,0 +1,13 @@
+@import '../sass/variables.scss';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+
+  @media only screen and (max-width: $bp-medium-low) {
+    font-size: 1rem;
+  }
+}
