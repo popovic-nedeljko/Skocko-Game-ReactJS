@@ -1,6 +1,5 @@
 import React from 'react';
 import './SecretSymbols.scss';
-import { FaQuestion } from 'react-icons/fa';
 import SingleItem from '../../components/GuesView/SingleItem';
 import { useGlobalContext } from '../../context';
 

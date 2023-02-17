@@ -19,7 +19,6 @@ function CheckButton() {
     isRowFive,
     setIsRowFive,
     rowSix,
-    setRowSix,
     isRowSix,
     setIsRowSix,
 

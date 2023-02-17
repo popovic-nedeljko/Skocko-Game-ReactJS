@@ -47,7 +47,7 @@ function UndoButton() {
       onClick={handleClick}
       disabled={!hidden ? true : false}
     >
-      UNDO SIMBOL
+      UNDO SYMBOL
     </button>
   );
 }
