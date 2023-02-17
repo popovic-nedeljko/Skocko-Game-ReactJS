@@ -1,4 +1,3 @@
-import '../App.css';
 import Buttons from '../components/Buttons/SymbolButtons/Buttons';
 import View from '../components/GuesView/View';
 import UndoButton from '../components/Buttons/UndoButton/UndoButton';
@@ -21,9 +20,11 @@ function Home() {
           <Timer />
         </div>
       </div>
-      <Buttons />
-      <CheckButton />
-      <UndoButton />
+      <div className='all-buttons'>
+        <Buttons />
+        <CheckButton />
+        <UndoButton />
+      </div>
     </div>
   );
 }

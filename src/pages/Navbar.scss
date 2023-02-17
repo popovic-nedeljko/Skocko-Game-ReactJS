@@ -8,7 +8,11 @@
   font-size: 2rem;
   font-weight: 600;
   border-bottom: 3px solid $color-grey-nav;
+  margin-bottom: 5rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 1.5rem;
+  }
   @media only screen and (max-width: $bp-medium-low) {
     flex-direction: column;
     height: fit-content;
