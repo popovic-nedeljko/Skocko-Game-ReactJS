@@ -14,6 +14,7 @@
   text-align: center;
   border: 0.7rem solid $color-gray-light-1;
   background-color: $color-gray-light-2;
+  cursor: pointer;
 
   @media only screen and (max-width: $bp-medium-low) {
     margin: 0.7rem;

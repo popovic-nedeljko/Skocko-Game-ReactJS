@@ -8,8 +8,8 @@ function About() {
       <div className='section-about'>
         <h2 className='heading'>
           Slagalica is Serban quiz that dates from 1993 and is still on TV
-          evrynight. <br /> This is one of the games in that quiz. It is caled
-          "Skocko"
+          evrynight. <br /> This is one of the games in that quiz. It is called
+          "Skočko"
         </h2>
         <h1 className='heading-rules'>Rules</h1>
         <p className='text'>
