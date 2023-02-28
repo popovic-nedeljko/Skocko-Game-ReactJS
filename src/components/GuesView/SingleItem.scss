@@ -9,7 +9,7 @@
   height: 6rem;
   width: 6rem;
   border-radius: 10px;
-  border: 0.7rem solid $color-grey-light-2;
+  border: 0.7rem solid $color-gray-light-2;
   background-color: $color-primary;
   line-height: 100%;
 
@@ -17,13 +17,13 @@
     margin: 0 0.5rem;
     height: 4.7rem;
     width: 4.7rem;
-    border: 0.4rem solid $color-grey-light-2;
+    border: 0.4rem solid $color-gray-light-2;
   }
 
   @media only screen and (max-width: $bp-small) {
     height: 3.5rem;
     width: 3.5rem;
-    border: 0.3rem solid $color-grey-light-2;
+    border: 0.3rem solid $color-gray-light-2;
   }
 
   @media only screen and (max-width: $bp-smallest) {

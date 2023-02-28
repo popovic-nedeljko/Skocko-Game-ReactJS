@@ -7,7 +7,7 @@
   height: 7.5rem;
   font-size: 2rem;
   font-weight: 600;
-  border-bottom: 3px solid $color-grey-nav;
+  border-bottom: 3px solid $color-gray-nav;
   margin-bottom: 5rem;
 
   @media only screen and (max-width: $bp-medium) {
@@ -28,7 +28,7 @@
 
 a {
   text-decoration: none;
-  color: $color-grey-light-3;
+  color: $color-gray-light-3;
   margin: 5rem;
 
   @media only screen and (max-width: $bp-medium-low) {
@@ -43,7 +43,7 @@ a {
   }
 }
 .nav-link {
-  border: 3px solid $color-grey-nav;
+  border: 3px solid $color-gray-nav;
   border-radius: 4px;
   padding: 1.5rem;
 }
