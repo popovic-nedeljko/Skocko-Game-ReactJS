@@ -37,16 +37,39 @@ function CheckButton() {
     const red = [];
     const yellow = [];
     const wrong = [];
-    result.map((item, index) => {
-      if (row[index].type === item.type) {
-        return red.push(`var(--color-red)`);
-      } else if (row.some((rowItem) => rowItem.type === item.type)) {
-        return yellow.push(`var(--color-yellow)`);
-      } else {
-        return wrong.push(`var(--color-greey)`);
+    const matchedIndices = new Set();
+    const rowMachedIndices = new Set();
+
+    // Check for red matches
+    result.forEach((item, index) => {
+      if (row[index].type.name === item.type.name) {
+        red.push(`var(--color-red)`);
+        matchedIndices.add(index);
+        rowMachedIndices.add(index);
       }
     });
-    console.log([...red, ...yellow, ...wrong]);
+
+    //check for yellow (not on the right plase) matches
+    result.forEach((item, index) => {
+      if (!matchedIndices.has(index)) {
+        const matchingIndex = row.findIndex(
+          (rowItem, i) =>
+            !rowMachedIndices.has(i) && rowItem.type.name === item.type.name
+        );
+
+        if (matchingIndex !== -1) {
+          yellow.push(`var(--color-yellow)`);
+          matchedIndices.add(index);
+          rowMachedIndices.add(matchingIndex);
+        }
+      }
+    });
+
+    // Fill in the remaining slots with wrong matches
+    row.forEach((item, index) => {
+      if (!matchedIndices.has(index)) wrong.push(`var(--color-gray)`);
+    });
+
     if (red.length === 4) hidden(false);
     return setResults([...red, ...yellow, ...wrong]);
   };
