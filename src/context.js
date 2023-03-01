@@ -32,7 +32,6 @@ const AppProvider = ({ children }) => {
   const [isRowFour, setIsRowFour] = useState(false);
   const [rowFive, setRowFive] = useState([]);
   const [isRowFive, setIsRowFive] = useState(false);
-
   const [rowSix, setRowSix] = useState([]);
   const [isRowSix, setIsRowSix] = useState(false);
 
@@ -41,7 +40,6 @@ const AppProvider = ({ children }) => {
   const [resultsRowThree, setResultsRowThree] = useState([]);
   const [resultsRowFour, setResultsRowFour] = useState([]);
   const [resultsRowFive, setResultsRowFive] = useState([]);
-
   const [resultsRowSix, setResultsRowSix] = useState([]);
 
   const [time, setTime] = useState(100);

@@ -10,7 +10,7 @@ function SecretSymbol() {
     <div className='secret-symbol'>
       <SingleItem
         item={secretSymbols[0]}
-        symbol={secretSymbols[0]?.type.name}
+        symbol={`${secretSymbols[0]?.type.name}`}
         hidden={hidden ? 'hidden' : ''}
       />
       <SingleItem

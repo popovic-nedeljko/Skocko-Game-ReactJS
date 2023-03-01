@@ -25,19 +25,21 @@ function UndoButton() {
     hidden,
   } = useGlobalContext();
 
-  const undo = (row, setRow) => {
-    const newRow = [...row];
-    newRow.pop();
-    setRow(newRow);
+  const undo = (isRow, row, setRow) => {
+    if (!isRow) {
+      const newRow = [...row];
+      newRow.pop();
+      setRow(newRow);
+    }
   };
 
   const handleClick = () => {
-    if (!isRowSix) undo(rowSix, setRowSix);
-    if (!isRowFive) undo(rowFive, setRowFive);
-    if (!isRowFour) undo(rowFour, setRowFour);
-    if (!isRowThree) undo(rowThree, setRowThree);
-    if (!isRowTwo) undo(rowTwo, setRowTwo);
-    if (!isRowOne) undo(rowOne, setRowOne);
+    undo(isRowSix, rowSix, setRowSix);
+    undo(isRowFive, rowFive, setRowFive);
+    undo(isRowFour, rowFour, setRowFour);
+    undo(isRowThree, rowThree, setRowThree);
+    undo(isRowTwo, rowTwo, setRowTwo);
+    undo(isRowOne, rowOne, setRowOne);
   };
 
   return (

@@ -74,48 +74,98 @@ function CheckButton() {
     return setResults([...red, ...yellow, ...wrong]);
   };
 
-  const handleClick = () => {
-    if (!isRowOne && rowOne.length === 4) {
-      setIsRowOne(true);
-      compare(secretSymbols, rowOne, setResultsRowOne, setHidden);
-    }
-    if (isRowOne && !isRowTwo && rowTwo.length === 4) {
-      setIsRowTwo(true);
-      compare(secretSymbols, rowTwo, setResultsRowTwo, setHidden);
-    }
-    if (isRowTwo && !isRowThree && rowThree.length === 4) {
-      setIsRowThree(true);
-      compare(secretSymbols, rowThree, setResultsRowThree, setHidden);
-    }
-    if (isRowThree && !isRowFour && rowFour.length === 4) {
-      setIsRowFour(true);
-      compare(secretSymbols, rowFour, setResultsRowFour, setHidden);
-    }
-    if (isRowFour && !isRowFive && rowFive.length === 4) {
-      setIsRowFive(true);
-      compare(secretSymbols, rowFive, setResultsRowFive, setHidden);
-    }
-    if (isRowFive && !isRowSix && rowSix.length === 4) {
-      setIsRowSix(true);
-      compare(secretSymbols, rowSix, setResultsRowSix);
-      setHidden(false);
+  const compareRow = (
+    isRowPrev,
+    isRow,
+    row,
+    setIsRow,
+    secretSymbols,
+    setResultsRow,
+    setHidden,
+    hidden
+  ) => {
+    if (isRowPrev && !isRow && row.length === 4) {
+      setIsRow(true);
+      compare(secretSymbols, row, setResultsRow, setHidden);
+      hidden(false);
     }
   };
 
-  const disableButton =
-    !isRowOne && rowOne.length === 4
-      ? true
-      : !isRowTwo && rowTwo.length === 4
-      ? true
-      : !isRowThree && rowThree.length === 4
-      ? true
-      : !isRowFour && rowFour.length === 4
-      ? true
-      : !isRowFive && rowFive.length === 4
-      ? true
-      : !isRowSix && rowSix.length === 4
-      ? true
-      : isRowSix && true;
+  const handleClick = () => {
+    compareRow(
+      true,
+      isRowOne,
+      rowOne,
+      setIsRowOne,
+      secretSymbols,
+      setResultsRowOne,
+      setHidden
+    );
+    compareRow(
+      isRowOne,
+      isRowTwo,
+      rowTwo,
+      setIsRowTwo,
+      secretSymbols,
+      setResultsRowTwo,
+      setHidden
+    );
+    compareRow(
+      isRowTwo,
+      isRowThree,
+      rowThree,
+      setIsRowThree,
+      secretSymbols,
+      setResultsRowThree,
+      setHidden
+    );
+    compareRow(
+      isRowThree,
+      isRowFour,
+      rowFour,
+      setIsRowFour,
+      secretSymbols,
+      setResultsRowFour,
+      setHidden
+    );
+    compareRow(
+      isRowFour,
+      isRowFive,
+      rowFive,
+      setIsRowFive,
+      secretSymbols,
+      setResultsRowFive,
+      setHidden
+    );
+    compareRow(
+      isRowFive,
+      isRowSix,
+      rowSix,
+      setIsRowSix,
+      secretSymbols,
+      setResultsRowSix,
+      setHidden,
+      setHidden
+    );
+  };
+
+  const disableCondition = (isRow, row) => {
+    return !isRow && row.length === 4;
+  };
+
+  const disableButton = disableCondition(isRowOne, rowOne)
+    ? true
+    : disableCondition(isRowTwo, rowTwo)
+    ? true
+    : disableCondition(isRowThree, rowThree)
+    ? true
+    : disableCondition(isRowFour, rowFour)
+    ? true
+    : disableCondition(isRowFive, rowFive)
+    ? true
+    : disableCondition(isRowSix, rowSix)
+    ? true
+    : isRowSix && true;
 
   return (
     <button

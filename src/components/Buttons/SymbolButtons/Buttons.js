@@ -33,48 +33,39 @@ const Buttons = () => {
     hidden,
   } = useGlobalContext();
 
+  const settingSymbol = (isRowPrev, setRow, row, symbol) => {
+    if (isRowPrev) {
+      setRow([...row, symbol]);
+      if (row.length === 4) setRow([...row]);
+    }
+  };
+
   const handleClick = (symbol) => {
-    setRowOne([...rowOne, symbol]);
-    if (rowOne.length === 4) setRowOne([...rowOne]);
+    settingSymbol(true, setRowOne, rowOne, symbol);
+    settingSymbol(isRowOne, setRowTwo, rowTwo, symbol);
+    settingSymbol(isRowTwo, setRowThree, rowThree, symbol);
+    settingSymbol(isRowThree, setRowFour, rowFour, symbol);
+    settingSymbol(isRowFour, setRowFive, rowFive, symbol);
+    settingSymbol(isRowFive, setRowSix, rowSix, symbol);
+  };
 
-    if (isRowOne) {
-      setRowTwo([...rowTwo, symbol]);
-      if (rowTwo.length === 4) setRowTwo([...rowTwo]);
-    }
-
-    if (isRowTwo) {
-      setRowThree([...rowThree, symbol]);
-      if (rowThree.length === 4) setRowThree([...rowThree]);
-    }
-
-    if (isRowThree) {
-      setRowFour([...rowFour, symbol]);
-      if (rowFour.length === 4) setRowFour([...rowFour]);
-    }
-
-    if (isRowFour) {
-      setRowFive([...rowFive, symbol]);
-      if (rowFive.length === 4) setRowFive([...rowFive]);
-    }
-    if (isRowFive) {
-      setRowSix([...rowSix, symbol]);
-      if (rowSix.length === 4) setRowSix([...rowSix]);
-    }
+  const disableCondition = (isRow, row) => {
+    return !isRow && row.length === 4;
   };
 
   const disableButton = !hidden
     ? true
-    : !isRowOne && rowOne.length === 4
+    : disableCondition(isRowOne, rowOne)
     ? true
-    : !isRowTwo && rowTwo.length === 4
+    : disableCondition(isRowTwo, rowTwo)
     ? true
-    : !isRowThree && rowThree.length === 4
+    : disableCondition(isRowThree, rowThree)
     ? true
-    : !isRowFour && rowFour.length === 4
+    : disableCondition(isRowFour, rowFour)
     ? true
-    : !isRowFive && rowFive.length === 4
+    : disableCondition(isRowFive, rowFive)
     ? true
-    : !isRowSix && rowSix.length === 4
+    : disableCondition(isRowSix, rowSix)
     ? true
     : isRowSix && true;
 
