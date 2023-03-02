@@ -22,6 +22,15 @@ const AppProvider = ({ children }) => {
   const [hidden, setHidden] = useState(true);
   const [secretSymbols, setSecretSymbols] = useState([]);
 
+  // const [gameState, setGameState] = useState([
+  //   { rowOne: [], isRowOne: false, resultsRowOne: [] },
+  //   { rowTwo: [], isRowTwo: false, resultsRowTwo: [] },
+  //   { rowThree: [], isRowThree: false, resultsRowThree: [] },
+  //   { rowFour: [], isRowFour: false, resultsRowFour: [] },
+  //   { rowFive: [], isRowFive: false, resultsRowFive: [] },
+  //   { rowSix: [], isRowSix: false, resultsRowSix: [] },
+  // ]);
+
   const [rowOne, setRowOne] = useState([]);
   const [isRowOne, setIsRowOne] = useState(false);
   const [rowTwo, setRowTwo] = useState([]);

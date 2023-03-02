@@ -1,12 +1,10 @@
 import React from 'react';
 import './SingleItem.scss';
 
-const SingleItem = ({ item, hidden, symbol }) => {
+const SingleItem = ({ item, hidden }) => {
   return (
     <div className='item'>
-      <div className={`item-symbol ${symbol} ${hidden ? hidden : ''}`}>
-        {item}
-      </div>
+      <div className={`item-symbol  ${hidden ? hidden : ''}`}>{item}</div>
     </div>
   );
 };

@@ -56,43 +56,6 @@
   &:disabled {
     transform: none;
     box-shadow: none;
-  }
-}
-
-.star {
-  color: $color-yelow-light;
-  &:disabled {
-    color: rgba($color-yelow-light, 0.4);
-  }
-}
-.diamonds {
-  color: $color-red;
-  &:disabled {
-    color: rgba($color-red, 0.4);
-  }
-}
-
-.hearts {
-  color: $color-red;
-  &:disabled {
-    color: rgba($color-red, 0.4);
-  }
-}
-.joker {
-  color: $color-grad-1;
-  &:disabled {
-    color: rgba($color-grad-1, 0.4);
-  }
-}
-.club {
-  color: $color-black;
-  &:disabled {
-    color: rgba($color-black, 0.4);
-  }
-}
-.spade {
-  color: $color-black;
-  &:disabled {
-    color: rgba($color-black, 0.4);
+    opacity: 0.5;
   }
 }

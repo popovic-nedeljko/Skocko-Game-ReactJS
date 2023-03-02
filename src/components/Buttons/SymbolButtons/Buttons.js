@@ -72,39 +72,43 @@ const Buttons = () => {
   return (
     <div className='buttons'>
       <Button
-        item={<BsFillStarFill />}
-        name={'star'}
-        click={() => handleClick(<BsFillStarFill />)}
+        item={<BsFillStarFill color={`var(--color-yellow)`} />}
+        click={() =>
+          handleClick(<BsFillStarFill color={`var(--color-yellow)`} />)
+        }
         disable={disableButton}
       />
       <Button
-        item={<BsFillSuitClubFill />}
-        name={'club'}
-        click={() => handleClick(<BsFillSuitClubFill />)}
+        item={<BsFillSuitClubFill color={`var(--color-black)`} />}
+        click={() =>
+          handleClick(<BsFillSuitClubFill color={`var(--color-black)`} />)
+        }
         disable={disableButton}
       />
       <Button
-        item={<BsFillSuitSpadeFill />}
-        name={'spade'}
-        click={() => handleClick(<BsFillSuitSpadeFill />)}
+        item={<BsFillSuitSpadeFill color={`var(--color-black)`} />}
+        click={() =>
+          handleClick(<BsFillSuitSpadeFill color={`var(--color-black)`} />)
+        }
         disable={disableButton}
       />
       <Button
-        item={<BsFillSuitHeartFill />}
-        name={'hearts'}
-        click={() => handleClick(<BsFillSuitHeartFill />)}
+        item={<BsFillSuitHeartFill color={`var(--color-red)`} />}
+        click={() =>
+          handleClick(<BsFillSuitHeartFill color={`var(--color-red)`} />)
+        }
         disable={disableButton}
       />
       <Button
-        item={<GiDiamonds />}
-        name={'diamonds'}
-        click={() => handleClick(<GiDiamonds />)}
+        item={<GiDiamonds color={`var(--color-red)`} />}
+        click={() => handleClick(<GiDiamonds color={`var(--color-red)`} />)}
         disable={disableButton}
       />
       <Button
-        item={<GiCardJoker />}
-        name={'joker'}
-        click={() => handleClick(<GiCardJoker />)}
+        item={<GiCardJoker color={`var(--color-blue-dark)`} />}
+        click={() =>
+          handleClick(<GiCardJoker color={`var(--color-blue-dark)`} />)
+        }
         disable={disableButton}
       />
     </div>
