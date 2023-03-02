@@ -11,25 +11,16 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const symbols = [
-    <BsFillSuitSpadeFill />,
-    <BsFillStarFill />,
-    <BsFillSuitClubFill />,
-    <GiDiamonds />,
-    <GiCardJoker />,
-    <BsFillSuitHeartFill />,
+    <BsFillSuitSpadeFill color={`var(--color-black)`} />,
+    <BsFillStarFill color={`var(--color-yellow)`} />,
+    <BsFillSuitClubFill color={`var(--color-black)`} />,
+    <GiDiamonds color={`var(--color-red)`} />,
+    <GiCardJoker color={`var(--color-blue-dark)`} />,
+    <BsFillSuitHeartFill color={`var(--color-red)`} />,
   ];
 
   const [hidden, setHidden] = useState(true);
   const [secretSymbols, setSecretSymbols] = useState([]);
-
-  // const [gameState, setGameState] = useState([
-  //   { rowOne: [], isRowOne: false, resultsRowOne: [] },
-  //   { rowTwo: [], isRowTwo: false, resultsRowTwo: [] },
-  //   { rowThree: [], isRowThree: false, resultsRowThree: [] },
-  //   { rowFour: [], isRowFour: false, resultsRowFour: [] },
-  //   { rowFive: [], isRowFive: false, resultsRowFive: [] },
-  //   { rowSix: [], isRowSix: false, resultsRowSix: [] },
-  // ]);
 
   const [rowOne, setRowOne] = useState([]);
   const [isRowOne, setIsRowOne] = useState(false);
