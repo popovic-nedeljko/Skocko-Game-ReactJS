@@ -4,49 +4,18 @@ import './Navbar.scss';
 import { useGlobalContext } from '../context';
 
 function Navbar() {
-  const {
-    setTime,
-    setRowOne,
-    setRowTwo,
-    setRowThree,
-    setRowFour,
-    setRowFive,
-    setRowSix,
-    setIsRowOne,
-    setIsRowTwo,
-    setIsRowThree,
-    setIsRowFour,
-    setIsRowFive,
-    setIsRowSix,
-    setResultsRowOne,
-    setResultsRowTwo,
-    setResultsRowThree,
-    setResultsRowFour,
-    setResultsRowFive,
-    setResultsRowSix,
-    renderRandomSymbols,
-    setHidden,
-  } = useGlobalContext();
+  const { setTime, renderRandomSymbols, setHidden, setGameState } =
+    useGlobalContext();
 
   const handleClick = () => {
-    setRowOne([]);
-    setRowTwo([]);
-    setRowThree([]);
-    setRowFour([]);
-    setRowFive([]);
-    setRowSix([]);
-    setIsRowOne(false);
-    setIsRowTwo(false);
-    setIsRowThree(false);
-    setIsRowFour(false);
-    setIsRowFive(false);
-    setIsRowSix(false);
-    setResultsRowOne([]);
-    setResultsRowTwo([]);
-    setResultsRowThree([]);
-    setResultsRowFour([]);
-    setResultsRowFive([]);
-    setResultsRowSix([]);
+    setGameState([
+      { row: [], isRow: true, resultsRow: ['', '', '', ''] },
+      { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+      { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+      { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+      { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+      { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+    ]);
     setTime(100);
     renderRandomSymbols();
     setHidden(true);

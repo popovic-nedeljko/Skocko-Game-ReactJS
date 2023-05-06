@@ -17,7 +17,7 @@ function Home() {
         </div>
         <div className='home--right'>
           <CheckReuslts />
-          <Timer />
+          {/* <Timer /> */}
         </div>
       </div>
       <div className='all-buttons'>

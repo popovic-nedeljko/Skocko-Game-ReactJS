@@ -4,17 +4,13 @@ import './View.scss';
 import ViewBlock from './ViewBlock';
 
 const View = () => {
-  const { rowOne, rowTwo, rowThree, rowFour, rowFive, rowSix } =
-    useGlobalContext();
+  const { gameState } = useGlobalContext();
 
   return (
     <>
-      <ViewBlock row={rowOne} />
-      <ViewBlock row={rowTwo} />
-      <ViewBlock row={rowThree} />
-      <ViewBlock row={rowFour} />
-      <ViewBlock row={rowFive} />
-      <ViewBlock row={rowSix} />
+      {gameState.map((row, index) => {
+        return <ViewBlock row={row.row} key={index} />;
+      })}
     </>
   );
 };

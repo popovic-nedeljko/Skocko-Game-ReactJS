@@ -11,7 +11,7 @@ function Footer() {
         href='https://github.com/popovic-nedeljko'
         rel='noreferrer'
       >
-        Nedeljko Popovic
+        Nedeljko Popovic.
       </a>
       <p className='footer__copyright'>
         Welcome to Skočko quiz game. Have a nice time playing.

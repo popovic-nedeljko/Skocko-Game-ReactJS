@@ -3,43 +3,21 @@ import { useGlobalContext } from '../../../context';
 import '../CheckUndoButton.scss';
 
 function UndoButton() {
-  const {
-    rowOne,
-    setRowOne,
-    isRowOne,
-    rowTwo,
-    setRowTwo,
-    isRowTwo,
-    rowThree,
-    setRowThree,
-    isRowThree,
-    rowFour,
-    setRowFour,
-    isRowFour,
-    rowFive,
-    setRowFive,
-    isRowFive,
-    rowSix,
-    setRowSix,
-    isRowSix,
-    hidden,
-  } = useGlobalContext();
+  const { gameState, setGameState, hidden } = useGlobalContext();
 
-  const undo = (isRow, row, setRow) => {
-    if (!isRow) {
-      const newRow = [...row];
-      newRow.pop();
-      setRow(newRow);
+  const undo = (IsRow, rowIndex) => {
+    const newState = [...gameState];
+    if (IsRow) {
+      newState[rowIndex].row.pop();
     }
+    setGameState(newState);
   };
 
   const handleClick = () => {
-    undo(isRowSix, rowSix, setRowSix);
-    undo(isRowFive, rowFive, setRowFive);
-    undo(isRowFour, rowFour, setRowFour);
-    undo(isRowThree, rowThree, setRowThree);
-    undo(isRowTwo, rowTwo, setRowTwo);
-    undo(isRowOne, rowOne, setRowOne);
+    for (let i = 0; i < gameState.length; i++) {
+      const { isRow } = gameState[i];
+      undo(isRow, i);
+    }
   };
 
   return (

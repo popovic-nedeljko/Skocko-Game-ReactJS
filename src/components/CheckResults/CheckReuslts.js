@@ -3,23 +3,13 @@ import CheckView from './CheckView';
 import { useGlobalContext } from '../../context';
 
 function CheckReuslts() {
-  const {
-    resultsRowOne,
-    resultsRowTwo,
-    resultsRowThree,
-    resultsRowFour,
-    resultsRowFive,
-    resultsRowSix,
-  } = useGlobalContext();
+  const { gameState } = useGlobalContext();
 
   return (
     <>
-      <CheckView row={resultsRowOne} />
-      <CheckView row={resultsRowTwo} />
-      <CheckView row={resultsRowThree} />
-      <CheckView row={resultsRowFour} />
-      <CheckView row={resultsRowFive} />
-      <CheckView row={resultsRowSix} />
+      {gameState.map((row, index) => {
+        return <CheckView row={row.resultsRow} key={index} />;
+      })}
     </>
   );
 }

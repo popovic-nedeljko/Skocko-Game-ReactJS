@@ -11,63 +11,32 @@ import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
 import { useGlobalContext } from '../../../context';
 
 const Buttons = () => {
-  const {
-    rowOne,
-    setRowOne,
-    isRowOne,
-    rowTwo,
-    setRowTwo,
-    isRowTwo,
-    rowThree,
-    setRowThree,
-    isRowThree,
-    rowFour,
-    setRowFour,
-    isRowFour,
-    rowFive,
-    isRowFive,
-    setRowFive,
-    rowSix,
-    isRowSix,
-    setRowSix,
-    hidden,
-  } = useGlobalContext();
+  const { hidden, setHidden, setGameState, gameState } = useGlobalContext();
 
-  const settingSymbol = (isRowPrev, setRow, row, symbol) => {
-    if (isRowPrev) {
-      setRow([...row, symbol]);
-      if (row.length === 4) setRow([...row]);
+  const settingSymbol = (IsRow, rowIndex, symbol) => {
+    const newState = [...gameState];
+    const row = newState[rowIndex].row;
+
+    if (IsRow) {
+      newState[rowIndex].row = [...row, symbol];
+      if (row.length === 4) {
+        newState[rowIndex].row = [...row];
+      }
     }
+    setGameState(newState);
   };
 
   const handleClick = (symbol) => {
-    settingSymbol(true, setRowOne, rowOne, symbol);
-    settingSymbol(isRowOne, setRowTwo, rowTwo, symbol);
-    settingSymbol(isRowTwo, setRowThree, rowThree, symbol);
-    settingSymbol(isRowThree, setRowFour, rowFour, symbol);
-    settingSymbol(isRowFour, setRowFive, rowFive, symbol);
-    settingSymbol(isRowFive, setRowSix, rowSix, symbol);
+    for (let i = 0; i < gameState.length; i++) {
+      const { isRow } = gameState[i];
+      settingSymbol(isRow, i, symbol);
+    }
   };
 
-  const disableCondition = (isRow, row) => {
-    return !isRow && row.length === 4;
-  };
-
-  const disableButton = !hidden
-    ? true
-    : disableCondition(isRowOne, rowOne)
-    ? true
-    : disableCondition(isRowTwo, rowTwo)
-    ? true
-    : disableCondition(isRowThree, rowThree)
-    ? true
-    : disableCondition(isRowFour, rowFour)
-    ? true
-    : disableCondition(isRowFive, rowFive)
-    ? true
-    : disableCondition(isRowSix, rowSix)
-    ? true
-    : isRowSix && true;
+  const disableButton =
+    !hidden ||
+    gameState.some((row) => row.isRow && row.row.length === 4) ||
+    (gameState.every((row) => !row.isRow) && setHidden(false));
 
   return (
     <div className='buttons'>

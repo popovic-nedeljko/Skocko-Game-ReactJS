@@ -21,26 +21,18 @@ const AppProvider = ({ children }) => {
 
   const [hidden, setHidden] = useState(true);
   const [secretSymbols, setSecretSymbols] = useState([]);
+  const [rowIndex, setRowIndex] = useState(0);
 
-  const [rowOne, setRowOne] = useState([]);
-  const [isRowOne, setIsRowOne] = useState(false);
-  const [rowTwo, setRowTwo] = useState([]);
-  const [isRowTwo, setIsRowTwo] = useState(false);
-  const [rowThree, setRowThree] = useState([]);
-  const [isRowThree, setIsRowThree] = useState(false);
-  const [rowFour, setRowFour] = useState([]);
-  const [isRowFour, setIsRowFour] = useState(false);
-  const [rowFive, setRowFive] = useState([]);
-  const [isRowFive, setIsRowFive] = useState(false);
-  const [rowSix, setRowSix] = useState([]);
-  const [isRowSix, setIsRowSix] = useState(false);
+  const [gameState, setGameState] = useState([
+    { row: [], isRow: true, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: false, resultsRow: ['', '', '', ''] },
+  ]);
 
-  const [resultsRowOne, setResultsRowOne] = useState([]);
-  const [resultsRowTwo, setResultsRowTwo] = useState([]);
-  const [resultsRowThree, setResultsRowThree] = useState([]);
-  const [resultsRowFour, setResultsRowFour] = useState([]);
-  const [resultsRowFive, setResultsRowFive] = useState([]);
-  const [resultsRowSix, setResultsRowSix] = useState([]);
+  console.log(gameState);
 
   const [time, setTime] = useState(100);
 
@@ -64,47 +56,15 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        rowIndex,
+        setRowIndex,
+        gameState,
+        setGameState,
         secretSymbols,
         hidden,
         setHidden,
         time,
         setTime,
-        rowOne,
-        setRowOne,
-        isRowOne,
-        setIsRowOne,
-        rowTwo,
-        setRowTwo,
-        isRowTwo,
-        setIsRowTwo,
-        rowThree,
-        setRowThree,
-        isRowThree,
-        setIsRowThree,
-        rowFour,
-        setRowFour,
-        isRowFour,
-        setIsRowFour,
-        rowFive,
-        setRowFive,
-        isRowFive,
-        setIsRowFive,
-        rowSix,
-        setRowSix,
-        isRowSix,
-        setIsRowSix,
-        resultsRowOne,
-        setResultsRowOne,
-        resultsRowTwo,
-        setResultsRowTwo,
-        resultsRowThree,
-        setResultsRowThree,
-        resultsRowFour,
-        setResultsRowFour,
-        resultsRowFive,
-        setResultsRowFive,
-        resultsRowSix,
-        setResultsRowSix,
         renderRandomSymbols,
       }}
     >

@@ -3,37 +3,16 @@ import '../CheckUndoButton.scss';
 import { useGlobalContext } from '../../../context';
 function CheckButton() {
   const {
-    rowOne,
-    isRowOne,
-    setIsRowOne,
-    rowTwo,
-    isRowTwo,
-    setIsRowTwo,
-    rowThree,
-    isRowThree,
-    setIsRowThree,
-    rowFour,
-    isRowFour,
-    setIsRowFour,
-    rowFive,
-    isRowFive,
-    setIsRowFive,
-    rowSix,
-    isRowSix,
-    setIsRowSix,
-
     secretSymbols,
-    setResultsRowOne,
-    setResultsRowTwo,
-    setResultsRowThree,
-    setResultsRowFour,
-    setResultsRowFive,
-    setResultsRowSix,
+    setGameState,
+    gameState,
+    rowIndex,
+    setRowIndex,
     setHidden,
     hidden,
   } = useGlobalContext();
 
-  const compare = (result, row, setResults, hidden) => {
+  const compare = (result, row, hidden) => {
     const red = [];
     const yellow = [];
     const wrong = [];
@@ -71,101 +50,31 @@ function CheckButton() {
     });
 
     if (red.length === 4) hidden(false);
-    return setResults([...red, ...yellow, ...wrong]);
+
+    return [...red, ...yellow, ...wrong];
   };
 
-  const compareRow = (
-    isRowPrev,
-    isRow,
-    row,
-    setIsRow,
-    secretSymbols,
-    setResultsRow,
-    setHidden,
-    hidden
-  ) => {
-    if (isRowPrev && !isRow && row.length === 4) {
-      setIsRow(true);
-      compare(secretSymbols, row, setResultsRow, setHidden);
-      hidden(false);
-    }
+  // Function to update the results for the currently checked row
+  const updateResults = (index, results) => {
+    setGameState((prevState) =>
+      prevState.map((item, i) =>
+        i === index
+          ? { ...item, isRow: false, resultsRow: results }
+          : i === index + 1
+          ? { ...item, isRow: true }
+          : item
+      )
+    );
   };
 
   const handleClick = () => {
-    compareRow(
-      true,
-      isRowOne,
-      rowOne,
-      setIsRowOne,
-      secretSymbols,
-      setResultsRowOne,
-      setHidden
-    );
-    compareRow(
-      isRowOne,
-      isRowTwo,
-      rowTwo,
-      setIsRowTwo,
-      secretSymbols,
-      setResultsRowTwo,
-      setHidden
-    );
-    compareRow(
-      isRowTwo,
-      isRowThree,
-      rowThree,
-      setIsRowThree,
-      secretSymbols,
-      setResultsRowThree,
-      setHidden
-    );
-    compareRow(
-      isRowThree,
-      isRowFour,
-      rowFour,
-      setIsRowFour,
-      secretSymbols,
-      setResultsRowFour,
-      setHidden
-    );
-    compareRow(
-      isRowFour,
-      isRowFive,
-      rowFive,
-      setIsRowFive,
-      secretSymbols,
-      setResultsRowFive,
-      setHidden
-    );
-    compareRow(
-      isRowFive,
-      isRowSix,
-      rowSix,
-      setIsRowSix,
-      secretSymbols,
-      setResultsRowSix,
-      setHidden,
-      setHidden
-    );
+    const result = compare(secretSymbols, gameState[rowIndex].row, setHidden);
+    updateResults(rowIndex, result);
+    setRowIndex(rowIndex + 1);
   };
 
-  const disableCondition = (isRow, row) => {
-    return !isRow && row.length === 4;
-  };
-
-  const disableButton = disableCondition(isRowOne, rowOne)
-    ? true
-    : disableCondition(isRowTwo, rowTwo)
-    ? true
-    : disableCondition(isRowThree, rowThree)
-    ? true
-    : disableCondition(isRowFour, rowFour)
-    ? true
-    : disableCondition(isRowFive, rowFive)
-    ? true
-    : disableCondition(isRowSix, rowSix)
-    ? true
-    : isRowSix && true;
+  const disableButton =
+    !hidden || gameState.some((row) => row.isRow && row.row.length === 4);
 
   return (
     <button
