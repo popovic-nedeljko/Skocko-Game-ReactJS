@@ -9,12 +9,7 @@ function SecretSymbol() {
   return (
     <div className='secret-symbol'>
       {secretSymbols.map((symbol, index) => (
-        <SingleItem
-          key={index}
-          item={symbol}
-          symbol={`${symbol?.type.name}`}
-          hidden={hidden ? 'hidden' : ''}
-        />
+        <SingleItem key={index} item={symbol} hidden={hidden ? 'hidden' : ''} />
       ))}
     </div>
   );
