@@ -2,7 +2,7 @@
 
 [SKOCKO_GAME](https://skocko-game-2023.netlify.app/)
 
-<img src='/img/skocko.png' width=500 height=400> <img src='/img/skocko-phone.png' width=200 height=400>
+<img src='/img/skocko.png' width=500 height=400> <img src='/img/skocko-phone.png' width=250 height=400>
 
 The game is inspired by the Serbian national quiz "Slagalica".It can be played on mobile as well as the other devices.
 
