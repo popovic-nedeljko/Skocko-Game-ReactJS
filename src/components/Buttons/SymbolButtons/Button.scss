@@ -1,0 +1,61 @@
+@import '../../../sass/variables.scss';
+.button-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 25%;
+
+  margin: 1rem;
+  padding: 1rem;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 10px;
+  font-size: 4rem;
+  text-align: center;
+  border: 0.7rem solid $color-gray-light-1;
+  background-color: $color-gray-light-2;
+  cursor: pointer;
+
+  @media only screen and (max-width: $bp-medium-low) {
+    margin: 0.7rem;
+    padding: 0.7rem;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6px;
+    border: 0.4rem solid $color-gray-light-1;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    height: 5rem;
+    width: 5rem;
+    font-size: 3rem;
+    border: 0.4rem solid $color-gray-light-1;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    margin: 0.4rem;
+    padding: 0.4rem;
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.3rem 0rem rgba($color-black, 0.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(0rem);
+    box-shadow: 0 0.1rem 0.1rem 0rem rgba($color-black, 0.2);
+  }
+  &:disabled {
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+  }
+}

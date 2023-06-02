@@ -1,0 +1,44 @@
+@import './variables.scss';
+
+:root {
+  //color variables
+  --color-red: #a80b0b;
+  --color-gray: #e3e3e3;
+  --color-yellow: rgb(255, 204, 0);
+  --color-black: #000;
+  --color-blue-dark: rgba(13, 53, 123, 0.878);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  min-height: 100vh;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Nunito Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(
+    to right bottom,
+    $color-blue-light,
+    60%,
+    $color-grad-2
+  );
+
+  display: flex;
+  justify-content: center;
+}
