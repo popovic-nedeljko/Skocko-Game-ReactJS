@@ -1,0 +1,26 @@
+//colors
+
+$color-primary: rgb(211, 221, 231);
+$result: #e3e3e3;
+$color-red: #a80b0b;
+$color-grad-1: rgba(13, 53, 123, 0.878);
+$color-grad-2: #439bfa;
+$color-yelow-light: rgb(255, 204, 0);
+$color-yelow-dark: #ffb900;
+$color-blue-light: #094f85;
+$color-gray-light-1: #f9f5f3;
+$color-gray-light-2: #f2efee;
+$color-gray-light-3: #d3c7c3;
+
+$color-white: #fff;
+$color-black: #000;
+$color-gray-nav: #7e8c9c;
+
+$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+
+//media auery responsive view
+$bp-medium-high: 61.25em; // 980px
+$bp-medium: 53.125em; //850px
+$bp-medium-low: 50em; // 800px
+$bp-small: 31.25em; // 500px
+$bp-smallest: 24.375em; // 350px
