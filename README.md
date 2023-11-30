@@ -22,3 +22,8 @@ To run and edit the project follow the instructions below:
 5. Run the project npm start
 
 `Have fun! 🃏`
+
+## NOTE*** 
+node version: 16.15.0
+
+npm version: 8.5.5
