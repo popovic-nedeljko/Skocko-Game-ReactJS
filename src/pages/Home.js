@@ -9,21 +9,34 @@ import './Home.scss';
 
 function Home() {
   return (
-    <div className='home'>
-      <div className='home--view-check'>
-        <div className='home--left'>
-          <View />
+    <div className='home-wrapper'>
+      <div className='game-board'>
+        <div className='game-col game-col--guess'>
+          <h3 className='game-col__header'>YOUR GUESS</h3>
+          <div className='game-col__body'>
+            <View />
+          </div>
           <SecretSymbol />
         </div>
-        <div className='home--right'>
-          <CheckReuslts />
-          <Timer />
+
+        <div className='game-col game-col--feedback'>
+          <h3 className='game-col__header'>FEEDBACK</h3>
+          <div className='game-col__body'>
+            <CheckReuslts />
+          </div>
         </div>
-      </div>
-      <div className='all-buttons'>
-        <Buttons />
-        <CheckButton />
-        <UndoButton />
+
+        <div className='game-col game-col--symbols'>
+          <h3 className='game-col__header'>SYMBOLS</h3>
+          <div className='game-col__body'>
+            <Buttons />
+          </div>
+          <div className='game-actions'>
+            <Timer />
+            <CheckButton />
+            <UndoButton />
+          </div>
+        </div>
       </div>
     </div>
   );

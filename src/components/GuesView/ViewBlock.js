@@ -1,10 +1,9 @@
 import React from 'react';
-
 import SingleItem from './SingleItem';
 
-const ViewBlock = ({ row }) => {
+const ViewBlock = ({ row, isActive }) => {
   return (
-    <div className='view'>
+    <div className={`view${isActive ? ' view--active' : ''}`}>
       <SingleItem item={row[0]} />
       <SingleItem item={row[1]} />
       <SingleItem item={row[2]} />

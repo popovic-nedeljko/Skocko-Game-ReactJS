@@ -8,9 +8,9 @@ const View = () => {
 
   return (
     <>
-      {gameState.map((row, index) => {
-        return <ViewBlock row={row.row} key={index} />;
-      })}
+      {gameState.map((row, index) => (
+        <ViewBlock row={row.row} key={index} isActive={row.isRow} />
+      ))}
     </>
   );
 };

@@ -1,15 +1,20 @@
 import Home from './pages/Home';
 import Navbar from './pages/Navbar';
-import About from './pages/About';
-import { Route, Routes } from 'react-router-dom';
+import Rules from './pages/Rules';
+import Landing from './pages/Landing';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
+  const location = useLocation();
+  const showNavbar = location.pathname !== '/';
+
   return (
     <>
-      <Navbar />
+      {showNavbar && <Navbar />}
       <Routes>
-        <Route path='about' element={<About />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/'       element={<Landing />} />
+        <Route path='/game'   element={<Home />} />
+        <Route path='/about'  element={<Rules />} />
       </Routes>
     </>
   );

@@ -1,30 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
   BsFillSuitSpadeFill,
-  BsFillStarFill,
   BsFillSuitClubFill,
   BsFillSuitHeartFill,
 } from 'react-icons/bs';
 import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
+import { FaStar } from 'react-icons/fa';
 
 const AppContext = React.createContext();
 
-const AppProvider = ({ children }) => {
-  const symbols = [
-    <BsFillSuitSpadeFill color={`var(--color-black)`} />,
-    <BsFillStarFill color={`var(--color-yellow)`} />,
-    <BsFillSuitClubFill color={`var(--color-black)`} />,
-    <GiDiamonds color={`var(--color-red)`} />,
-    <GiCardJoker color={`var(--color-blue-dark)`} />,
-    <BsFillSuitHeartFill color={`var(--color-red)`} />,
-  ];
+const SYMBOLS = [
+  <BsFillSuitHeartFill color='#cc2233' />,
+  <GiDiamonds color='#ff6600' />,
+  <BsFillSuitClubFill color='#22aa44' />,
+  <BsFillSuitSpadeFill color='#22a0cc' />,
+  <FaStar color='#ffd700' />,
+  <GiCardJoker color='#9933cc' />,
+];
 
+const AppProvider = ({ children }) => {
   const [hidden, setHidden] = useState(true);
   const [secretSymbols, setSecretSymbols] = useState([]);
   const [rowIndex, setRowIndex] = useState(0);
 
   const [gameState, setGameState] = useState([
-    { row: [], isRow: true, resultsRow: ['', '', '', ''] },
+    { row: [], isRow: true,  resultsRow: ['', '', '', ''] },
     { row: [], isRow: false, resultsRow: ['', '', '', ''] },
     { row: [], isRow: false, resultsRow: ['', '', '', ''] },
     { row: [], isRow: false, resultsRow: ['', '', '', ''] },
@@ -32,25 +32,22 @@ const AppProvider = ({ children }) => {
     { row: [], isRow: false, resultsRow: ['', '', '', ''] },
   ]);
 
-  console.log(gameState);
-
   const [time, setTime] = useState(100);
-console.log(time);
-  const random = (item) => {
-    let number = Math.floor(Math.random() * item.length);
-    return number;
-  };
+
+  const random = (arr) => Math.floor(Math.random() * arr.length);
+
   const renderRandomSymbols = () => {
     setSecretSymbols([
-      symbols[random(symbols)],
-      symbols[random(symbols)],
-      symbols[random(symbols)],
-      symbols[random(symbols)],
+      SYMBOLS[random(SYMBOLS)],
+      SYMBOLS[random(SYMBOLS)],
+      SYMBOLS[random(SYMBOLS)],
+      SYMBOLS[random(SYMBOLS)],
     ]);
   };
 
   useEffect(() => {
     renderRandomSymbols();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -73,8 +70,6 @@ console.log(time);
   );
 };
 
-export const useGlobalContext = () => {
-  return useContext(AppContext);
-};
+export const useGlobalContext = () => useContext(AppContext);
 
 export { AppContext, AppProvider };

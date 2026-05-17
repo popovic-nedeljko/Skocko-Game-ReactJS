@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaUndoAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../../context';
 import '../CheckUndoButton.scss';
 
@@ -15,8 +16,7 @@ function UndoButton() {
 
   const handleClick = () => {
     for (let i = 0; i < gameState.length; i++) {
-      const { isRow } = gameState[i];
-      undo(isRow, i);
+      undo(gameState[i].isRow, i);
     }
   };
 
@@ -25,9 +25,9 @@ function UndoButton() {
       className='btn btn__undo'
       type='submit'
       onClick={handleClick}
-      disabled={!hidden ? true : false}
+      disabled={!hidden}
     >
-      UNDO SYMBOL
+      UNDO SYMBOL <FaUndoAlt />
     </button>
   );
 }

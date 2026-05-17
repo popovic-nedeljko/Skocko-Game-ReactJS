@@ -1,12 +1,15 @@
-@import '../../../sass/variables.scss';
-
 .buttons {
   display: flex;
-  margin: 0;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  flex: 1;
 
-  @media only screen and (max-width: $bp-medium) {
-    flex-wrap: nowrap;
-    margin: 1rem 0;
+  // ── Mobile (≤640px): horizontal row of 6 icon buttons ────────────────────
+  @media (max-width: 640px) {
+    flex-direction: row;
+    flex: none;
+    gap: clamp(0.3rem, 1vw, 0.6rem);
+    margin-bottom: 0.8rem;
   }
 }

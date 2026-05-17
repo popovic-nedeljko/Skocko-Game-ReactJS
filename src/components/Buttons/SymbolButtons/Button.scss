@@ -1,61 +1,86 @@
-@import '../../../sass/variables.scss';
-.button-item {
+.symbol-btn {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 25%;
-
-  margin: 1rem;
-  padding: 1rem;
-  height: 7rem;
-  width: 7rem;
-  border-radius: 10px;
-  font-size: 4rem;
-  text-align: center;
-  border: 0.7rem solid $color-gray-light-1;
-  background-color: $color-gray-light-2;
+  align-items: stretch;
+  width: 100%;
+  border: 2px solid var(--btn-color, rgba(80, 140, 255, 0.5));
+  border-radius: min(0.7vw, 8px);
+  background: rgba(5, 12, 40, 0.9);
   cursor: pointer;
+  margin-bottom: min(0.55vw, 0.7rem);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.15s;
+  padding: 0;
 
-  @media only screen and (max-width: $bp-medium-low) {
-    margin: 0.7rem;
-    padding: 0.7rem;
-    height: 6.5rem;
-    width: 6.5rem;
-    border-radius: 6px;
-    border: 0.4rem solid $color-gray-light-1;
+  &:hover:not(:disabled) {
+    box-shadow: 0 0 min(1.2vw, 14px) var(--btn-color, rgba(80, 140, 255, 0.5));
+    transform: translateY(-1px);
   }
 
-  @media only screen and (max-width: $bp-small) {
-    height: 5rem;
-    width: 5rem;
-    font-size: 3rem;
-    border: 0.4rem solid $color-gray-light-1;
+  &:active:not(:disabled) { transform: translateY(0); }
+
+  &:disabled { opacity: 0.4; cursor: default; }
+
+  &__icon {
+    width: min(4.5vw, 5.2rem);
+    min-height: min(4.5vw, 5.2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: min(2.2vw, 2.4rem);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 18%;
+      bottom: 18%;
+      width: 2px;
+      background: var(--btn-color, rgba(80, 140, 255, 0.5));
+    }
+
+    svg {
+      width: min(2.2vw, 2.4rem);
+      height: min(2.2vw, 2.4rem);
+    }
   }
 
-  @media only screen and (max-width: $bp-smallest) {
-    margin: 0.4rem;
-    padding: 0.4rem;
-    height: 4.5rem;
-    width: 4.5rem;
+  &__track {
+    flex: 1;
+    min-height: min(4.5vw, 5.2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: min(1.5vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--btn-color, #fff);
+    opacity: 0.85;
   }
 
-  &:hover {
-    transform: translateY(-0.2rem);
-    box-shadow: 0 0.4rem 0.3rem 0rem rgba($color-black, 0.2);
-  }
+  // ── Mobile (≤640px): compact square icon-only button ─────────────────────
+  @media (max-width: 640px) {
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 0;
+    border-radius: clamp(6px, 1.5vw, 10px);
 
-  &:focus {
-    outline: none;
-  }
+    &__icon {
+      width: 100%;
+      min-height: clamp(4rem, 13vw, 5.5rem);
+      font-size: clamp(1.6rem, 6vw, 2.8rem);
 
-  &:active {
-    outline: none;
-    transform: translateY(0rem);
-    box-shadow: 0 0.1rem 0.1rem 0rem rgba($color-black, 0.2);
-  }
-  &:disabled {
-    transform: none;
-    box-shadow: none;
-    opacity: 0.5;
+      &::after { display: none; }
+
+      svg {
+        width: clamp(1.6rem, 6vw, 2.8rem);
+        height: clamp(1.6rem, 6vw, 2.8rem);
+      }
+    }
+
+    &__track {
+      display: none;
+    }
   }
 }
