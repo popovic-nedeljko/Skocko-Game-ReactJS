@@ -6,13 +6,12 @@ const Timer = () => {
   const { time, setTime, setHidden, hidden } = useGlobalContext();
 
   useEffect(() => {
-    const timer =
-      time > 0 &&
-      setInterval(() => {
-        setTime(time - 1);
-      }, 1000);
+    if (time <= 0) return;
+    const timer = setInterval(() => {
+      setTime((t) => t - 1);
+    }, 1000);
     return () => clearInterval(timer);
-  }, [time]);
+  }, [time, setTime]);
 
   useEffect(() => {
     if (time === 0) setHidden(false);
