@@ -2,12 +2,12 @@ import React from 'react';
 import SingleItem from './SingleItem';
 
 const ViewBlock = ({ row, isActive }) => {
+  const cells = Array.from({ length: 4 }, (_, i) => row[i] ?? null);
   return (
     <div className={`view${isActive ? ' view--active' : ''}`}>
-      <SingleItem item={row[0]} />
-      <SingleItem item={row[1]} />
-      <SingleItem item={row[2]} />
-      <SingleItem item={row[3]} />
+      {cells.map((item, index) => (
+        <SingleItem key={index} item={item} />
+      ))}
     </div>
   );
 };

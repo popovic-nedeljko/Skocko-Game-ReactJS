@@ -1,66 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from './Button';
 import './Buttons.scss';
-import {
-  BsFillSuitSpadeFill,
-  BsFillSuitClubFill,
-  BsFillSuitHeartFill,
-} from 'react-icons/bs';
-import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
-import { FaStar } from 'react-icons/fa';
 import { useGlobalContext } from '../../../context';
-
-const SYMBOL_CONFIG = [
-  { Icon: BsFillSuitHeartFill, color: '#cc2233', label: 'heart' },
-  { Icon: GiDiamonds,          color: '#ff6600', label: 'diamond' },
-  { Icon: BsFillSuitClubFill,  color: '#22aa44', label: 'club' },
-  { Icon: BsFillSuitSpadeFill, color: '#22a0cc', label: 'spade' },
-  { Icon: FaStar,              color: '#ffd700', label: 'star' },
-  { Icon: GiCardJoker,         color: '#9933cc', label: 'joker' },
-];
+import { SYMBOL_CONFIG } from '../../../constants';
 
 const Buttons = () => {
   const { hidden, setHidden, setGameState, gameState } = useGlobalContext();
 
-  const settingSymbol = (IsRow, rowIndex, symbol) => {
-    const newState = [...gameState];
-    const row = newState[rowIndex].row;
-    if (IsRow) {
-      newState[rowIndex].row = [...row, symbol];
-      if (row.length === 4) {
-        newState[rowIndex].row = [...row];
-      }
-    }
-    setGameState(newState);
-  };
+  useEffect(() => {
+    if (gameState.every((row) => !row.isRow)) setHidden(false);
+  }, [gameState, setHidden]);
 
   const handleClick = (symbol) => {
-    for (let i = 0; i < gameState.length; i++) {
-      settingSymbol(gameState[i].isRow, i, symbol);
-    }
+    const activeIndex = gameState.findIndex((row) => row.isRow);
+    if (activeIndex === -1 || gameState[activeIndex].row.length >= 4) return;
+    setGameState(
+      gameState.map((item, i) =>
+        i === activeIndex ? { ...item, row: [...item.row, symbol] } : item
+      )
+    );
   };
 
   const disableButton =
-    !hidden ||
-    gameState.some((row) => row.isRow && row.row.length === 4) ||
-    (gameState.every((row) => !row.isRow) && setHidden(false));
+    !hidden || gameState.some((row) => row.isRow && row.row.length === 4);
 
   return (
     <div className='buttons'>
-      {SYMBOL_CONFIG.map(({ Icon, color, label, rotate }) => {
-        const element = <Icon color={color} />;
-        return (
-          <Button
-            key={label}
-            item={element}
-            click={() => handleClick(<Icon color={color} />)}
-            btnColor={color}
-            disable={disableButton}
-            label={label.toUpperCase()}
-            rotate={rotate}
-          />
-        );
-      })}
+      {SYMBOL_CONFIG.map(({ Icon, color, label }) => (
+        <Button
+          key={label}
+          item={<Icon color={color} />}
+          click={() => handleClick(<Icon color={color} />)}
+          btnColor={color}
+          disable={disableButton}
+          label={label.toUpperCase()}
+        />
+      ))}
     </div>
   );
 };

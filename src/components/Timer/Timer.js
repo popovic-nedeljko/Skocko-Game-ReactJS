@@ -4,7 +4,6 @@ import './Timer.scss';
 
 const Timer = () => {
   const { time, setTime, setHidden, hidden } = useGlobalContext();
-  console.log(time);
 
   useEffect(() => {
     const timer =
@@ -15,8 +14,13 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, [time]);
 
-  if (time === 0) setHidden(false);
-  if (!hidden) setTime(0);
+  useEffect(() => {
+    if (time === 0) setHidden(false);
+  }, [time, setHidden]);
+
+  useEffect(() => {
+    if (!hidden) setTime(0);
+  }, [hidden, setTime]);
 
   return <div className='timer'>{time}</div>;
 };

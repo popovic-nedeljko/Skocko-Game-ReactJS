@@ -1,22 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  BsFillSuitSpadeFill,
-  BsFillSuitClubFill,
-  BsFillSuitHeartFill,
-} from 'react-icons/bs';
-import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
-import { FaStar } from 'react-icons/fa';
+import { SYMBOL_CONFIG } from './constants';
 
 const AppContext = React.createContext();
 
-const SYMBOLS = [
-  <BsFillSuitHeartFill color='#cc2233' />,
-  <GiDiamonds color='#ff6600' />,
-  <BsFillSuitClubFill color='#22aa44' />,
-  <BsFillSuitSpadeFill color='#22a0cc' />,
-  <FaStar color='#ffd700' />,
-  <GiCardJoker color='#9933cc' />,
-];
+const SYMBOLS = SYMBOL_CONFIG.map(({ Icon, color }) => <Icon color={color} />);
 
 const AppProvider = ({ children }) => {
   const [hidden, setHidden] = useState(true);

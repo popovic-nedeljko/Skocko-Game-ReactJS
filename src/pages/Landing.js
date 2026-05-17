@@ -6,18 +6,16 @@ import {
   BsFillSuitClubFill,
   BsFillSuitHeartFill,
 } from 'react-icons/bs';
-import { GiDiamonds, GiCardJoker } from 'react-icons/gi';
+import { GiDiamonds } from 'react-icons/gi';
 import { FaPlay, FaBook, FaBrain, FaTrophy, FaUndoAlt, FaStar } from 'react-icons/fa';
 import { MdOutlineGpsFixed } from 'react-icons/md';
+import { SYMBOL_CONFIG } from '../constants';
 
-const SYMBOL_CIRCLES = [
-  { icon: <BsFillSuitHeartFill />, color: '#cc2233', glow: 'rgba(200,30,50,0.7)' },
-  { icon: <GiDiamonds />,          color: '#ff6600', glow: 'rgba(255,102,0,0.7)' },
-  { icon: <BsFillSuitClubFill />,  color: '#22aa44', glow: 'rgba(30,180,60,0.7)' },
-  { icon: <BsFillSuitSpadeFill />, color: '#22a0cc', glow: 'rgba(30,160,210,0.7)' },
-  { icon: <FaStar />,              color: '#ffd700', glow: 'rgba(255,215,0,0.7)' },
-  { icon: <GiCardJoker />,         color: '#9933cc', glow: 'rgba(150,40,210,0.7)' },
-];
+const SYMBOL_CIRCLES = SYMBOL_CONFIG.map(({ Icon, color, glow }) => ({
+  icon: <Icon />,
+  color,
+  glow,
+}));
 
 const PREVIEW_FEEDBACK = [
   ['red', 'yellow', 'none', 'none'],
@@ -74,14 +72,11 @@ const GUESS_ROWS = [
   ],
 ];
 
-const PREVIEW_SYMBOLS = [
-  { icon: <BsFillSuitHeartFill />, color: '#cc2233', label: 'HEART' },
-  { icon: <GiDiamonds />,          color: '#ff6600', label: 'DIAMOND' },
-  { icon: <BsFillSuitClubFill />,  color: '#22aa44', label: 'CLUB' },
-  { icon: <BsFillSuitSpadeFill />, color: '#22a0cc', label: 'SPADE' },
-  { icon: <FaStar />,              color: '#ffd700', label: 'STAR' },
-  { icon: <GiCardJoker />,         color: '#9933cc', label: 'JOKER' },
-];
+const PREVIEW_SYMBOLS = SYMBOL_CONFIG.map(({ Icon, color, label }) => ({
+  icon: <Icon />,
+  color,
+  label: label.toUpperCase(),
+}));
 
 function PreviewPeg({ type }) {
   return <span className={`prev-peg prev-peg--${type}`} />;
