@@ -1,4 +1,4 @@
-@import '../sass/variables.scss';
+@import "../sass/variables.scss";
 
 // Breakpoints:
 //   mobile   ≤ 640px  — single column, no preview
@@ -18,9 +18,12 @@
   position: relative;
 
   &::before {
-    content: '♠  ♥  ♦  ♣  ★  ♠  ♥  ♦  ♣  ★';
+    content: "♠  ♥  ♦  ♣  ★  ♠  ♥  ♦  ♣  ★";
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     font-size: 14rem;
     letter-spacing: 5rem;
     color: rgba(255, 255, 255, 0.025);
@@ -235,23 +238,33 @@
   padding: clamp(0.8rem, 1.2vh, 1.5rem) clamp(1rem, 1.5vw, 2rem);
   border-radius: min(1rem, 12px);
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.2s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.2s;
 
-  &:hover  { transform: translateY(-3px); }
-  &:active { transform: translateY(0); }
+  &:hover {
+    transform: translateY(-3px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
 
   &--start {
     background: rgba(8, 20, 60, 0.9);
     border: 2px solid rgba(80, 160, 255, 0.7);
     box-shadow: 0 0 20px rgba(40, 100, 220, 0.3);
-    &:hover { box-shadow: 0 6px 25px rgba(40, 120, 255, 0.5); }
+    &:hover {
+      box-shadow: 0 6px 25px rgba(40, 120, 255, 0.5);
+    }
   }
 
   &--rules {
     background: linear-gradient(135deg, #7a4a00, #c8780a);
     border: 2px solid #e8a800;
     box-shadow: 0 0 20px rgba(200, 140, 0, 0.35);
-    &:hover { box-shadow: 0 6px 25px rgba(220, 160, 0, 0.5); }
+    &:hover {
+      box-shadow: 0 6px 25px rgba(220, 160, 0, 0.5);
+    }
   }
 
   @media (max-width: 1024px) {
@@ -353,6 +366,7 @@
 
   @media (max-width: 1024px) {
     flex-direction: column;
+    align-items: flex-start;
     gap: clamp(0.55rem, 1.5vh, 1.1rem);
   }
 
@@ -381,11 +395,20 @@
   flex-shrink: 0;
   margin-top: 0.1rem;
 
-  &--blue   { color: #5bb8f5; }
-  &--gold   { color: #e8a000; }
-  &--purple { color: #9933cc; }
+  &--blue {
+    color: #5bb8f5;
+  }
+  &--gold {
+    color: #e8a000;
+  }
+  &--purple {
+    color: #9933cc;
+  }
 
-  svg { width: min(2.8rem, 2.4vw); height: min(2.8rem, 2.4vw); }
+  svg {
+    width: min(2.8rem, 2.4vw);
+    height: min(2.8rem, 2.4vw);
+  }
 
   @media (max-width: 1024px) {
     font-size: clamp(2rem, 6.5vw, 3rem);
@@ -413,9 +436,15 @@
   letter-spacing: 2px;
   margin-bottom: 0.2rem;
 
-  &--blue   { color: #5bb8f5; }
-  &--gold   { color: #e8a000; }
-  &--purple { color: #9933cc; }
+  &--blue {
+    color: #5bb8f5;
+  }
+  &--gold {
+    color: #e8a000;
+  }
+  &--purple {
+    color: #9933cc;
+  }
 
   @media (max-width: 1024px) {
     font-size: clamp(1rem, 3.2vw, 1.4rem);
@@ -597,7 +626,7 @@
 .prev-sym-btn {
   display: flex;
   align-items: stretch;
-  border: 2px solid var(--sc, rgba(80,140,255,0.5));
+  border: 2px solid var(--sc, rgba(80, 140, 255, 0.5));
   border-radius: min(6px, 0.5vw);
   background: rgba(5, 12, 40, 0.9);
   margin-bottom: min(0.4rem, 0.35vw);
@@ -614,16 +643,19 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       right: 0;
       top: 18%;
       bottom: 18%;
       width: 2px;
-      background: var(--sc, rgba(80,140,255,0.5));
+      background: var(--sc, rgba(80, 140, 255, 0.5));
     }
 
-    svg { width: min(1.8rem, 1.6vw); height: min(1.8rem, 1.6vw); }
+    svg {
+      width: min(1.8rem, 1.6vw);
+      height: min(1.8rem, 1.6vw);
+    }
   }
 
   &__track {
@@ -652,7 +684,9 @@
   margin-bottom: min(0.5rem, 0.4vw);
   white-space: nowrap;
 
-  svg { font-size: min(0.9rem, 0.8vw); }
+  svg {
+    font-size: min(0.9rem, 0.8vw);
+  }
 
   &--check {
     background: linear-gradient(135deg, #c8780a, #e8a800);
@@ -699,7 +733,12 @@
 .landing__tagline-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 150, 12, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 150, 12, 0.5),
+    transparent
+  );
 }
 
 .tagline-think {

@@ -1,14 +1,6 @@
 import React from "react";
 import "./Rules.scss";
-
-const SYMBOLS = [
-  { label: "HEART", icon: "♥", color: "#e03232" },
-  { label: "DIAMOND", icon: "♦", color: "#ff6600" },
-  { label: "CLUB", icon: "♣", color: "#3db843" },
-  { label: "SPADE", icon: "♠", color: "#4a9edd" },
-  { label: "STAR", icon: "★", color: "#ffd700" },
-  { label: "JOKER", icon: "🃏", color: "#9b59b6" },
-];
+import { SYMBOL_CONFIG } from "../constants";
 
 const SECRET = [
   { icon: "♥", color: "#e03232" },
@@ -57,22 +49,22 @@ export default function Rules() {
         <div className="rules-info-box">
           <span>🏆</span>
           <p>
-            Klasičan srpski kviz na TV <span className="hl-y">od 1993</span>.
+            Classic Serbian quiz on TV <span className="hl-y">since 1993</span>.
           </p>
         </div>
         <div className="rules-title-center">
           <div className="rules-sym-row">
-            {SYMBOLS.map((s) => (
+            {SYMBOL_CONFIG.map(({ Icon, color, label }) => (
               <div
-                key={s.label}
+                key={label}
                 className="rules-sym-circle"
                 style={{
-                  borderColor: s.color,
-                  boxShadow: `0 0 8px ${s.color}66`,
-                  color: s.color,
+                  borderColor: color,
+                  boxShadow: `0 0 8px ${color}66`,
+                  color: color,
                 }}
               >
-                {s.icon}
+                <Icon />
               </div>
             ))}
           </div>
@@ -82,8 +74,8 @@ export default function Rules() {
         <div className="rules-info-box">
           <span style={{ color: "#ffd700" }}>★</span>
           <p>
-            Jedna od najpopularnijih igara u{" "}
-            <span className="hl-y">Slagalici</span>.
+            One of the most popular games on{" "}
+            <span className="hl-y">Slagalica</span>.
           </p>
         </div>
       </div>
@@ -95,38 +87,38 @@ export default function Rules() {
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="1" />
-              CILJ IGRE
+              GOAL
             </div>
             <p className="rt">
-              Pogodi skrivenu kombinaciju od{" "}
-              <span className="hl-y">4 simbola</span> u najviše{" "}
-              <span className="hl-y">6 pokušaja</span>. Simboli mogu da se
-              ponavljaju, a redosled je važan.
+              Guess the hidden combination of{" "}
+              <span className="hl-y">4 symbols</span> in at most{" "}
+              <span className="hl-y">6 attempts</span>. Symbols can repeat,
+              and the order matters.
             </p>
           </div>
 
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="2" />
-              SIMBOLI
+              SYMBOLS
             </div>
             <p className="rt rt--sm">
-              U igri se koristi 6 simbola. Simboli mogu da se ponavljaju.
+              The game uses 6 symbols. Symbols can repeat.
             </p>
             <div className="sym-grid">
-              {SYMBOLS.map((s) => (
-                <div key={s.label} className="sym-item">
+              {SYMBOL_CONFIG.map(({ Icon, color, label }) => (
+                <div key={label} className="sym-item">
                   <div
                     className="sym-icon"
                     style={{
-                      color: s.color,
-                      borderColor: `${s.color}66`,
-                      boxShadow: `0 0 8px ${s.color}55`,
+                      color: color,
+                      borderColor: `${color}66`,
+                      boxShadow: `0 0 8px ${color}55`,
                     }}
                   >
-                    {s.icon}
+                    <Icon />
                   </div>
-                  <small className="sym-lbl">{s.label}</small>
+                  <small className="sym-lbl">{label.toUpperCase()}</small>
                 </div>
               ))}
             </div>
@@ -135,14 +127,14 @@ export default function Rules() {
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="3" />
-              TOK IGRE
+              HOW TO PLAY
             </div>
             <div className="steps">
               {[
-                "Na početku se nasumično generiše tajna kombinacija od 4 simbola.",
-                "Vi unosite svoju pretpostavku (guess) od 4 simbola.",
-                "Dobijate povratnu informaciju nakon svakog pokušaja.",
-                "Igra traje dok ne pogodite kombinaciju ili ne potrošite sve pokušaje (najčešće 6).",
+                "At the start, a secret combination of 4 symbols is randomly generated.",
+                "You enter your guess of 4 symbols.",
+                "You receive feedback after each attempt.",
+                "The game continues until you guess the combination or use all attempts (usually 6).",
               ].map((t, i) => (
                 <div key={i} className="step">
                   <span className="step__n">{i + 1}</span>
@@ -155,33 +147,33 @@ export default function Rules() {
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="4" />
-              STRATEGIJE
+              STRATEGIES
             </div>
             <div className="strats">
               {[
                 {
                   icon: "★",
                   color: "#3db843",
-                  title: "Koristite različite simbole na početku",
-                  desc: "Prvi pokušaji treba da pokriju što više opcija.",
+                  title: "Use different symbols early on",
+                  desc: "Your first guesses should cover as many options as possible.",
                 },
                 {
                   icon: "◎",
                   color: "#ff8800",
-                  title: "Pratite povratne informacije pažljivo",
-                  desc: "Crveni kružići su najvredniji – potvrđuju i simbol i poziciju.",
+                  title: "Track feedback carefully",
+                  desc: "Red pegs are the most valuable — they confirm both the symbol and position.",
                 },
                 {
                   icon: "✕",
                   color: "#e03232",
-                  title: "Eliminacija",
-                  desc: "Ako simbol ne daje nikakav feedback, verovatno nije deo kombinacije.",
+                  title: "Elimination",
+                  desc: "If a symbol gives no feedback, it is likely not part of the combination.",
                 },
                 {
                   icon: "⊙",
                   color: "#4a9edd",
-                  title: "Testiranje pozicija",
-                  desc: "Kada znate da simbol postoji, menjajte mu poziciju da pronađete pravo mesto.",
+                  title: "Position testing",
+                  desc: "Once you know a symbol exists, move it around to find the right position.",
                 },
               ].map(({ icon, color, title, desc }, i) => (
                 <div key={i} className="strat">
@@ -207,7 +199,7 @@ export default function Rules() {
         <div className="rules-col rules-col--center">
           <div className="center-hd">
             <span className="center-line" />
-            PRAVILA IGRE
+            GAME RULES
             <span className="center-line" />
           </div>
 
@@ -215,24 +207,24 @@ export default function Rules() {
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="5" />
-              POVRATNA INFORMACIJA (FEEDBACK)
+              FEEDBACK
             </div>
             <div className="fb-grid">
               <div className="fb-block">
                 <div className="fb-block__hd">
                   <Peg type="red" />
-                  <span className="hl-r fb-block__name">CRVENI KRUŽIĆ</span>
+                  <span className="hl-r fb-block__name">RED PEG</span>
                 </div>
                 <p className="rt rt--sm">
-                  Simbol je tačan i nalazi se na tačnoj poziciji.
+                  The symbol is correct and in the right position.
                 </p>
                 <div className="fb-rows">
-                  <FbRow label="TAJNA">
+                  <FbRow label="SECRET">
                     {SECRET.map((s, i) => (
                       <SBox key={i} icon={s.icon} color={s.color} />
                     ))}
                   </FbRow>
-                  <FbRow label="VAŠ POKUŠAJ">
+                  <FbRow label="YOUR GUESS">
                     {[
                       { icon: "♥", color: "#e03232" },
                       { icon: "★", color: "#ffd700" },
@@ -249,24 +241,24 @@ export default function Rules() {
                     <Peg type="empty" sm />
                   </FbRow>
                 </div>
-                <p className="rt rt--xs">♥ i ♣ su na tačnim pozicijama.</p>
+                <p className="rt rt--xs">♥ and ♣ are in the correct positions.</p>
               </div>
 
               <div className="fb-block">
                 <div className="fb-block__hd">
                   <Peg type="yellow" />
-                  <span className="hl-y fb-block__name">ŽUTI KRUŽIĆ</span>
+                  <span className="hl-y fb-block__name">YELLOW PEG</span>
                 </div>
                 <p className="rt rt--sm">
-                  Simbol postoji u kombinaciji, ali je na pogrešnoj poziciji.
+                  The symbol exists in the combination but is in the wrong position.
                 </p>
                 <div className="fb-rows">
-                  <FbRow label="TAJNA">
+                  <FbRow label="SECRET">
                     {SECRET.map((s, i) => (
                       <SBox key={i} icon={s.icon} color={s.color} />
                     ))}
                   </FbRow>
-                  <FbRow label="VAŠ POKUŠAJ">
+                  <FbRow label="YOUR GUESS">
                     {[
                       { icon: "♠", color: "#4a9edd" },
                       { icon: "♥", color: "#e03232" },
@@ -284,7 +276,7 @@ export default function Rules() {
                   </FbRow>
                 </div>
                 <p className="rt rt--xs">
-                  ♠ i ♥ postoje ali nisu na pravom mestu.
+                  ♠ and ♥ exist but are not in the right position.
                 </p>
               </div>
             </div>
@@ -293,15 +285,15 @@ export default function Rules() {
           {/* Važna pravila */}
           <div className="r-card">
             <div className="r-card__hd--center">
-              VAŽNA PRAVILA FEEDBACK SISTEMA
+              IMPORTANT FEEDBACK RULES
             </div>
             <div className="imp-grid">
               <div className="imp-card">
                 <div className="imp-num">1</div>
-                <p className="imp-title">CRVENI IMAJU PRIORITET</p>
+                <p className="imp-title">RED PEGS HAVE PRIORITY</p>
                 <p className="rt rt--sm">
-                  Prvo se računaju tačne pozicije (crveni), pa tek onda pogrešne
-                  (žuti).
+                  Correct positions (red) are counted first, then wrong positions
+                  (yellow).
                 </p>
                 <div className="sbox-row" style={{ margin: "0.4vh 0" }}>
                   {SECRET.map((s, i) => (
@@ -310,24 +302,24 @@ export default function Rules() {
                 </div>
                 <span className="imp-arrow">↓</span>
                 <p className="rt rt--xs">
-                  sprečava duplo brojanje istog simbola.
+                  prevents double-counting the same symbol.
                 </p>
               </div>
 
               <div className="imp-card">
                 <div className="imp-num">2</div>
-                <p className="imp-title">JEDAN SIMBOL = JEDAN POGODAK</p>
+                <p className="imp-title">ONE SYMBOL = ONE MATCH</p>
                 <p className="rt rt--sm">
-                  Simbol može biti uračunat samo jednom, čak i ako se ponavlja u
-                  pokušaju.
+                  A symbol can only be counted once, even if it appears multiple
+                  times in your guess.
                 </p>
                 <div className="fb-rows" style={{ marginTop: "0.3vh" }}>
-                  <FbRow label="TAJNA:">
+                  <FbRow label="SECRET:">
                     {SECRET.map((s, i) => (
                       <SBox key={i} icon={s.icon} color={s.color} />
                     ))}
                   </FbRow>
-                  <FbRow label="POKUŠAJ:">
+                  <FbRow label="GUESS:">
                     {[0, 1, 2, 3].map((i) => (
                       <SBox key={i} icon="♥" color="#e03232" />
                     ))}
@@ -341,11 +333,11 @@ export default function Rules() {
               <div className="imp-card">
                 <div className="imp-num">3</div>
                 <p className="imp-title">
-                  REDOSLED FEEDBACK KRUŽIĆA NIJE BITAN
+                  PEG ORDER DOES NOT MATTER
                 </p>
                 <p className="rt rt--sm">
-                  Feedback ne govori koji simbol je pogođen. Samo ukupno stanje
-                  pokušaja.
+                  Feedback does not tell you which symbol was matched. Only the
+                  overall result of the attempt.
                 </p>
                 <div
                   className="sbox-row"
@@ -354,7 +346,7 @@ export default function Rules() {
                   <Peg type="red" sm />
                   <Peg type="yellow" sm />
                 </div>
-                <p className="rt rt--xs">ne znači da je prvi simbol tačan.</p>
+                <p className="rt rt--xs">does not mean the first symbol is correct.</p>
               </div>
             </div>
           </div>
@@ -363,10 +355,11 @@ export default function Rules() {
           <div className="r-note">
             <span className="r-note__icon">💡</span>
             <p className="rt rt--sm">
-              Igrač dobija samo informaciju{" "}
-              <strong className="hl-y">KOLIKO</strong> je simbola tačno na
-              pravom mestu i <strong className="hl-y">KOLIKO</strong> ih je
-              tačno ali na pogrešnom mestu.
+              The player only learns{" "}
+              <strong className="hl-y">HOW MANY</strong> symbols are correct and
+              in the right position, and{" "}
+              <strong className="hl-y">HOW MANY</strong> are correct but in the
+              wrong position.
             </p>
           </div>
         </div>
@@ -377,10 +370,10 @@ export default function Rules() {
           <div className="r-card">
             <div className="r-card__hd">
               <SecNum n="6" />
-              PRIMER CELE PARTIJE
+              EXAMPLE GAME
             </div>
             <div className="ex-secret">
-              <span className="ex-secret__lbl">TAJNA KOMBINACIJA</span>
+              <span className="ex-secret__lbl">SECRET COMBINATION</span>
               <div className="sbox-row">
                 {SECRET.map((s, i) => (
                   <SBox key={i} icon={s.icon} color={s.color} />
@@ -398,7 +391,7 @@ export default function Rules() {
                     { icon: "★", color: "#ffd700" },
                   ],
                   pegs: ["red", "yellow", "empty", "empty"],
-                  expl: "♥ je tačan i na pravom mestu, ♦ postoji ali je na pogrešnom mestu.",
+                  expl: "♥ is correct and in the right position, ♦ exists but is in the wrong position.",
                 },
                 {
                   n: 2,
@@ -409,7 +402,7 @@ export default function Rules() {
                     { icon: "♣", color: "#3db843" },
                   ],
                   pegs: ["red", "red", "yellow", "yellow"],
-                  expl: "♥ i ♠ su tačni, ♦ i ♣ postoje ali su zamenjeni.",
+                  expl: "♥ and ♠ are correct, ♦ and ♣ exist but are swapped.",
                 },
                 {
                   n: 3,
@@ -420,12 +413,12 @@ export default function Rules() {
                     { icon: "♦", color: "#ff6600" },
                   ],
                   pegs: ["red", "red", "red", "red"],
-                  expl: "Svi simboli su tačni i na pravim mestima.",
+                  expl: "All symbols are correct and in the right positions.",
                 },
               ].map(({ n, guess, pegs, expl }) => (
                 <div key={n} className="ex-attempt">
                   <div className="ex-attempt__left">
-                    <span className="ex-attempt__lbl">POKUŠAJ {n}</span>
+                    <span className="ex-attempt__lbl">ATTEMPT {n}</span>
                     <div className="ex-attempt__row">
                       <div className="sbox-row">
                         {guess.map((s, i) => (
@@ -441,7 +434,7 @@ export default function Rules() {
                     </div>
                   </div>
                   <div className="ex-expl">
-                    <span className="ex-expl__lbl">Objašnjenje:</span>
+                    <span className="ex-expl__lbl">Explanation:</span>
                     {expl}
                   </div>
                 </div>
@@ -453,12 +446,12 @@ export default function Rules() {
           <div className="r-card r-card--flex">
             <div className="r-card__hd">
               <SecNum n="7" />
-              KRAJ IGRE
+              END OF GAME
             </div>
             <div className="end-grid">
               <div className="end-card end-card--win">
                 <span className="end-icon">🏆</span>
-                <p className="end-title">POBEDA</p>
+                <p className="end-title">WIN</p>
                 <div className="sbox-row sbox-row--center">
                   <Peg type="red" />
                   <Peg type="red" />
@@ -466,17 +459,17 @@ export default function Rules() {
                   <Peg type="red" />
                 </div>
                 <p className="rt rt--sm">
-                  Pogađate kombinaciju pre nego što potrošite sve pokušaje.
+                  You guess the combination before using all your attempts.
                 </p>
-                <p className="rt rt--sm">Svi simboli i pozicije tačni.</p>
+                <p className="rt rt--sm">All symbols and positions correct.</p>
               </div>
               <div className="end-card end-card--lose">
                 <span className="end-icon">💀</span>
-                <p className="end-title">PORAZ</p>
+                <p className="end-title">LOSE</p>
                 <p className="rt rt--sm">
-                  Potrošili ste sve pokušaje, a niste pogodili kombinaciju.
+                  You used all your attempts without guessing the combination.
                 </p>
-                <p className="rt rt--sm">Tajna kombinacija se otkriva.</p>
+                <p className="rt rt--sm">The secret combination is revealed.</p>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navbar.scss';
 import { useGlobalContext } from '../context';
+import { SYMBOL_CONFIG } from '../constants';
 
 function Navbar() {
   const { setTime, renderRandomSymbols, setHidden, setGameState, setRowIndex } =
@@ -37,17 +38,10 @@ function Navbar() {
       )}
       {!onRules && (
         <Link to='/' className='nav-symbols'>
-          {[
-            { icon: '♥', color: '#e03232' },
-            { icon: '♦', color: '#ff6600' },
-            { icon: '♣', color: '#3db843' },
-            { icon: '♠', color: '#4a9edd' },
-            { icon: '★',  color: '#ffd700' },
-            { icon: '🃏', color: '#9b59b6' },
-          ].map((s) => (
-            <span key={s.icon} className='nav-sym-circle'
-              style={{ borderColor: s.color, boxShadow: `0 0 8px 2px ${s.color}55` }}>
-              <span style={{ color: s.color }}>{s.icon}</span>
+          {SYMBOL_CONFIG.map(({ Icon, color, glow, label }) => (
+            <span key={label} className='nav-sym-circle'
+              style={{ borderColor: color, boxShadow: `0 0 8px 2px ${glow}` }}>
+              <Icon color={color} />
             </span>
           ))}
         </Link>

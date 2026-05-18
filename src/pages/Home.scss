@@ -1,4 +1,4 @@
-@import '../sass/variables.scss';
+@import "../sass/variables.scss";
 
 // ── Breakpoints ───────────────────────────────────────────────────────────────
 // Desktop  > 640px  — three-column layout (guess | feedback | symbols)
@@ -10,12 +10,14 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  padding-top: 7rem;
+  padding-top: var(--navbar-h);
 
   @media (max-width: 640px) {
-    padding-top: 5.5rem;
-    align-items: flex-start;
     overflow-y: auto;
+  }
+
+  @media (max-width: 560px) {
+    overflow: hidden;
   }
 }
 
@@ -34,6 +36,9 @@
   @media (max-width: 640px) {
     width: 100%;
     flex-wrap: wrap;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 
@@ -133,8 +138,21 @@
     padding: 0 0.8rem 1rem;
     gap: 0.6rem;
 
-    .timer    { grid-area: timer; align-self: center; }
-    .btn__check { grid-area: check; }
-    .btn__undo  { grid-area: undo; }
+    .timer {
+      grid-area: timer;
+      align-self: center;
+    }
+    .btn__check {
+      grid-area: check;
+    }
+    .btn__undo {
+      grid-area: undo;
+    }
+  }
+
+  // ── Small mobile (≤560px): more padding and spacing ──────────────────────
+  @media (max-width: 560px) {
+    padding: 0 0.8rem 1.6rem;
+    gap: 0.9rem;
   }
 }

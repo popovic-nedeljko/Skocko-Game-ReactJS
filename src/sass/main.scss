@@ -6,6 +6,15 @@
   --color-yellow: rgb(255, 204, 0);
   --color-black: #000;
   --color-blue-dark: rgba(13, 53, 123, 0.878);
+  --navbar-h: 7rem;
+
+  @media (max-width: 640px) {
+    --navbar-h: 5.5rem;
+  }
+
+  @media (max-width: 480px) {
+    --navbar-h: 9rem;
+  }
 }
 
 * {
@@ -26,7 +35,7 @@ html {
 
 body {
   height: 100vh;
-  overflow: hidden; /* individual pages handle their own scroll */
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     'Nunito Sans', sans-serif;
@@ -37,4 +46,12 @@ body {
   flex-direction: column;
   align-items: center;
   color: #fff;
+}
+
+@media (max-width: 1024px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
 }
