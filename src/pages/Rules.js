@@ -289,26 +289,30 @@ export default function Rules() {
             </div>
             <div className="imp-grid">
               <div className="imp-card">
-                <div className="imp-num">1</div>
-                <p className="imp-title">RED PEGS HAVE PRIORITY</p>
+                <div className="imp-card__hd">
+                  <div className="imp-num">1</div>
+                  <p className="imp-title">RED PEGS HAVE PRIORITY</p>
+                </div>
                 <p className="rt rt--sm">
                   Correct positions (red) are counted first, then wrong positions
                   (yellow).
                 </p>
-                <div className="sbox-row" style={{ margin: "0.4vh 0" }}>
-                  {SECRET.map((s, i) => (
-                    <SBox key={i} icon={s.icon} color={s.color} />
-                  ))}
+                <div className="imp-inline-row">
+                  <div className="sbox-row">
+                    {SECRET.map((s, i) => (
+                      <SBox key={i} icon={s.icon} color={s.color} />
+                    ))}
+                  </div>
+                  <span className="imp-arrow">→</span>
+                  <p className="rt rt--xs">prevents double-counting the same symbol.</p>
                 </div>
-                <span className="imp-arrow">↓</span>
-                <p className="rt rt--xs">
-                  prevents double-counting the same symbol.
-                </p>
               </div>
 
               <div className="imp-card">
-                <div className="imp-num">2</div>
-                <p className="imp-title">ONE SYMBOL = ONE MATCH</p>
+                <div className="imp-card__hd">
+                  <div className="imp-num">2</div>
+                  <p className="imp-title">ONE SYMBOL = ONE MATCH</p>
+                </div>
                 <p className="rt rt--sm">
                   A symbol can only be counted once, even if it appears multiple
                   times in your guess.
@@ -331,10 +335,10 @@ export default function Rules() {
               </div>
 
               <div className="imp-card">
-                <div className="imp-num">3</div>
-                <p className="imp-title">
-                  PEG ORDER DOES NOT MATTER
-                </p>
+                <div className="imp-card__hd">
+                  <div className="imp-num">3</div>
+                  <p className="imp-title">PEG ORDER DOES NOT MATTER</p>
+                </div>
                 <p className="rt rt--sm">
                   Feedback does not tell you which symbol was matched. Only the
                   overall result of the attempt.
